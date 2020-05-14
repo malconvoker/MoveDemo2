@@ -985,7 +985,7 @@
 										{
 											"id": "find-path",
 											"objectClass": "E_SlowChaseBase",
-											"sid": 745079404693807,
+											"sid": 796647071057691,
 											"behaviorType": "Pathfinding",
 											"parameters": {
 												"x": "PlayerBase.X",

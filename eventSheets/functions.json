@@ -403,6 +403,12 @@
 					}
 				},
 				{
+					"id": "regenerate-obstacle-map",
+					"objectClass": "EnemyBases",
+					"sid": 907346164168755,
+					"behaviorType": "Pathfinding"
+				},
+				{
 					"id": "wait",
 					"objectClass": "System",
 					"sid": 990194674472357,

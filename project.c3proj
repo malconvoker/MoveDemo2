@@ -148,6 +148,14 @@
 				"SlowChaseMoveTile"
 			],
 			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"E_SeeChaseBase",
+				"E_SeeChaseMask",
+				"SeeChaseMoveTile"
+			],
+			"selectMode": "normal"
 		}
 	],
 	"families": {

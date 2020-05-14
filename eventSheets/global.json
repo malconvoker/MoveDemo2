@@ -71,12 +71,26 @@
 					}
 				},
 				{
+					"type": "comment",
+					"text": "PF obstacle can't cut corners, PF path cost object can cut corners"
+				},
+				{
 					"id": "add-obstacle",
 					"objectClass": "EnemyBases",
 					"sid": 780379650662781,
 					"behaviorType": "Pathfinding",
 					"parameters": {
 						"obstacle": "Collisions"
+					}
+				},
+				{
+					"id": "add-path-cost",
+					"objectClass": "EnemyBases",
+					"sid": 794363069425271,
+					"behaviorType": "Pathfinding",
+					"parameters": {
+						"object": "EnemyBases",
+						"cost": "500"
 					}
 				}
 			],
