@@ -75,6 +75,11 @@
 			"behaviorId": "Pathfinding",
 			"name": "Pathfinding",
 			"sid": 625310327085603
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 892761181127659
 		}
 	],
 	"effectTypes": [],

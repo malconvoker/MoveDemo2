@@ -278,6 +278,14 @@
 								"diagonals": true,
 								"enabled": true
 							}
+						},
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						}
 					},
 					"world": {
@@ -335,6 +343,14 @@
 								"diagonals": true,
 								"enabled": true
 							}
+						},
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						}
 					},
 					"world": {
@@ -390,6 +406,14 @@
 								"rotate-object": false,
 								"diagonals": true,
 								"enabled": true
+							}
+						},
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
 							}
 						}
 					},
@@ -447,6 +471,14 @@
 								"diagonals": true,
 								"enabled": true
 							}
+						},
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						}
 					},
 					"world": {
@@ -502,6 +534,14 @@
 								"rotate-object": false,
 								"diagonals": true,
 								"enabled": true
+							}
+						},
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
 							}
 						}
 					},

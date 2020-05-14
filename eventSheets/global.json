@@ -92,6 +92,15 @@
 						"object": "EnemyBases",
 						"cost": "500"
 					}
+				},
+				{
+					"id": "add-obstacle",
+					"objectClass": "EnemyBases",
+					"sid": 953410958680879,
+					"behaviorType": "LineOfSight",
+					"parameters": {
+						"obstacle": "Collisions"
+					}
 				}
 			],
 			"sid": 817354963574250
