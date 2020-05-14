@@ -1056,7 +1056,7 @@
 						},
 						{
 							"id": "set-animation-frame",
-							"objectClass": "EnemyMoveTile",
+							"objectClass": "SlowChaseMoveTile",
 							"sid": 702551115573505,
 							"parameters": {
 								"frame-number": "Functions.GetAngle45(\nE_SlowChaseBase.ImagePointX(\"center\"),\nE_SlowChaseBase.ImagePointY(\"center\"),\nE_SlowChaseBase.Pathfinding.NodeXAt(0),\nE_SlowChaseBase.Pathfinding.NodeYAt(0))/45"
@@ -1067,8 +1067,8 @@
 							"objectClass": "E_SlowChaseBase",
 							"sid": 461351890349885,
 							"parameters": {
-								"x": "EnemyMoveTile.ImagePointX(\"position\")",
-								"y": "EnemyMoveTile.ImagePointY(\"position\")"
+								"x": "SlowChaseMoveTile.ImagePointX(\"position\")",
+								"y": "SlowChaseMoveTile.ImagePointY(\"position\")"
 							}
 						},
 						{
@@ -1275,7 +1275,7 @@
 				},
 				{
 					"id": "set-position",
-					"objectClass": "EnemyMoveTile",
+					"objectClass": "SlowChaseMoveTile",
 					"sid": 545857263838837,
 					"parameters": {
 						"x": "E_SlowChaseBase.X",

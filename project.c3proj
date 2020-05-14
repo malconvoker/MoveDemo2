@@ -90,7 +90,10 @@
 					"E_SlowChaseMask",
 					"E_UpDownBase",
 					"E_UpDownMask",
-					"EnemyMoveTile"
+					"SlowChaseMoveTile",
+					"E_SeeChaseBase",
+					"E_SeeChaseMask",
+					"SeeChaseMoveTile"
 				],
 				"subfolders": [],
 				"name": "Enemies"
@@ -142,7 +145,7 @@
 			"members": [
 				"E_SlowChaseBase",
 				"E_SlowChaseMask",
-				"EnemyMoveTile"
+				"SlowChaseMoveTile"
 			],
 			"selectMode": "normal"
 		}

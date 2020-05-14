@@ -8,6 +8,7 @@
 	"members": [
 		"E_SlowChaseMask",
 		"E_UpDownMask",
-		"PlayerMask"
+		"PlayerMask",
+		"E_SeeChaseMask"
 	]
 }

@@ -80,6 +80,7 @@
 	"effectTypes": [],
 	"members": [
 		"E_UpDownBase",
-		"E_SlowChaseBase"
+		"E_SlowChaseBase",
+		"E_SeeChaseBase"
 	]
 }
