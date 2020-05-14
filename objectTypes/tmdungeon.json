@@ -1,0 +1,21 @@
+{
+	"name": "TMdungeon",
+	"plugin-id": "Tilemap",
+	"sid": 990115641270644,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 120,
+		"height": 100,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "C:\\Users\\mctur\\Downloads\\dungeon_tileset1.png",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 1114103,
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

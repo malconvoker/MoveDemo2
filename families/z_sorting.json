@@ -1,0 +1,13 @@
+{
+	"name": "Z_Sorting",
+	"plugin-id": "Sprite",
+	"sid": 920243712084503,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"E_SlowChaseMask",
+		"E_UpDownMask",
+		"PlayerMask"
+	]
+}

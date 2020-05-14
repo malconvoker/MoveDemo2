@@ -1,0 +1,87 @@
+{
+	"name": "Global",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "EnemiesActive",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Number of enemies on the layout",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 408307394080193
+		},
+		{
+			"eventType": "variable",
+			"name": "Turn",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "The character whose turn it is, 0=player",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 366931827467546
+		},
+		{
+			"eventType": "variable",
+			"name": "GameSpeed",
+			"type": "number",
+			"initialValue": "0.1",
+			"comment": "Number of seconds between each turn",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 289283359011430
+		},
+		{
+			"eventType": "variable",
+			"name": "TouchMode",
+			"type": "string",
+			"initialValue": "default",
+			"comment": "Current mode of touch: default",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 121488578550355
+		},
+		{
+			"eventType": "variable",
+			"name": "Tile",
+			"type": "number",
+			"initialValue": "20",
+			"comment": "Size of tile in pixels",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 126844405262762
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 960917149822026
+				}
+			],
+			"actions": [
+				{
+					"id": "add-obstacle",
+					"objectClass": "PlayerBase",
+					"sid": 503223568768943,
+					"behaviorType": "Pathfinding",
+					"parameters": {
+						"obstacle": "Collisions"
+					}
+				},
+				{
+					"id": "add-obstacle",
+					"objectClass": "EnemyBases",
+					"sid": 780379650662781,
+					"behaviorType": "Pathfinding",
+					"parameters": {
+						"obstacle": "Collisions"
+					}
+				}
+			],
+			"sid": 817354963574250
+		}
+	],
+	"sid": 415198647961194
+}

@@ -1,0 +1,253 @@
+{
+	"name": "PlayerMask",
+	"plugin-id": "Sprite",
+	"sid": 528459880737709,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 806619311022881
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\chr_spr_1-1.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3290479,
+						"collisionPoly": {
+							"points": [
+								0.125,
+								0.09090909090909091,
+								0.5,
+								0,
+								0.8125,
+								0.09090909090909091,
+								0.8125,
+								0.5,
+								0.8125,
+								0.8636363636363636,
+								0.5,
+								0.9545454545454546,
+								0.125,
+								0.8636363636363636,
+								0.125,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 817505103173022,
+				"name": "front",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 4
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\chr_spr_1-2.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9355017,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 853922728853653,
+				"name": "right",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 4
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 22,
+						"originX": -0.375,
+						"originY": 0.7272727272727273,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\chr_spr_1-3.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3715032,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 301621663722946,
+				"name": "left",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 4
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.8,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\chr_spr1.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8941099,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\chr_spr_1-1.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1332504,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 427367392702679,
+				"name": "Oldfront",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 1
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.8,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\chr_spr3.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5645340,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								1,
+								0,
+								1,
+								0,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								0,
+								1,
+								0,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 473626164000417,
+				"name": "Oldleft",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 4
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.8,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\chr_spr2.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8829596,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 910953779644142,
+				"name": "Oldright",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 4
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.8,
+						"originalSource": "C:\\Users\\mctur\\Desktop\\Files\\Luotsaamo\\Level 4\\LailaConcept.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2946310,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								1,
+								0,
+								1,
+								0,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								0,
+								1,
+								0,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 808525003682823,
+				"name": "Old",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

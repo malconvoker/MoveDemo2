@@ -1,0 +1,241 @@
+{
+	"name": "PlayerBase",
+	"plugin-id": "Sprite",
+	"sid": 645735548878440,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "MoveX",
+			"type": "number",
+			"desc": "X to move to",
+			"sid": 636931300626041
+		},
+		{
+			"name": "MoveY",
+			"type": "number",
+			"desc": "X to move to",
+			"sid": 682106462273991
+		},
+		{
+			"name": "MoveAngle",
+			"type": "number",
+			"desc": "Angle to move",
+			"sid": 125893066774733
+		},
+		{
+			"name": "meleeDmg",
+			"type": "number",
+			"desc": "Damage dealt by moving into enemy",
+			"sid": 443907064233033
+		},
+		{
+			"name": "maxhp",
+			"type": "number",
+			"desc": "",
+			"sid": 872372472324457
+		},
+		{
+			"name": "hp",
+			"type": "number",
+			"desc": "",
+			"sid": 746376378517428
+		},
+		{
+			"name": "TurnInProgress",
+			"type": "boolean",
+			"desc": "Is the player turn in progress (used in addition to Turn == 1)",
+			"sid": 287912942623586
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pathfinding",
+			"name": "Pathfinding",
+			"sid": 875123936108729
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2421083,
+						"collisionPoly": {
+							"points": [
+								0.05,
+								0.05,
+								0.5,
+								0.05,
+								0.95,
+								0.05,
+								0.95,
+								0.5,
+								0.95,
+								0.95,
+								0.5,
+								0.95,
+								0.05,
+								0.95,
+								0.05,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "center",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 926940309188685,
+				"name": "default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 25,
+						"originX": 0,
+						"originY": 0.2,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8727802,
+						"collisionPoly": {
+							"points": [
+								0.05,
+								0.244,
+								0.5,
+								0.244,
+								0.95,
+								0.244,
+								0.95,
+								0.64,
+								0.95,
+								1,
+								0.5,
+								1,
+								0.05,
+								1,
+								0.05,
+								0.64
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "center",
+								"x": 0.5,
+								"y": 0.64
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 20,
+						"height": 25,
+						"originX": 0,
+						"originY": 0.2,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9841349,
+						"collisionPoly": {
+							"points": [
+								0.05,
+								0.244,
+								0.5,
+								0.244,
+								0.95,
+								0.244,
+								0.95,
+								0.64,
+								0.95,
+								1,
+								0.5,
+								1,
+								0.05,
+								1,
+								0.05,
+								0.64
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "center",
+								"x": -0.25,
+								"y": 0.8
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 20,
+						"height": 25,
+						"originX": 0,
+						"originY": 0.2,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5757078,
+						"collisionPoly": {
+							"points": [
+								0.05,
+								0.244,
+								0.5,
+								0.244,
+								0.95,
+								0.244,
+								0.95,
+								0.64,
+								0.95,
+								1,
+								0.5,
+								1,
+								0.05,
+								1,
+								0.05,
+								0.64
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "center",
+								"x": -0.25,
+								"y": 0.8
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 153695141314470,
+				"name": "withmask",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,1606 @@
+{
+	"name": "Enemies",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Global"
+		},
+		{
+			"eventType": "comment",
+			"text": "Not really necessary currently, but can later be used to refer to the value since it's always correct"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 734351490050275
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 568290012313718,
+					"parameters": {
+						"variable": "EnemiesActive",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 955628143124214,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 391559421575701,
+							"parameters": {
+								"object": "EnemyBases",
+								"expression": "EnemyBases.UID",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 689867381729714,
+							"parameters": {
+								"variable": "EnemiesActive",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 389400577231928,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyBases",
+									"sid": 185799838013319,
+									"parameters": {
+										"instance-variable": "ActTime",
+										"comparison": 0,
+										"value": "-1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "EnemyBases",
+									"sid": 251640414943137,
+									"parameters": {
+										"instance-variable": "ActTime",
+										"value": "floor(random(Self.ActThMove+1))"
+									}
+								}
+							],
+							"sid": 285632634774135
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Enemies die when they are killed!"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "EnemyBases",
+					"sid": 708717966901853,
+					"parameters": {
+						"instance-variable": "hp",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "EnemyBases",
+					"sid": 933245831346579
+				},
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 132735769642052,
+					"parameters": {
+						"variable": "EnemiesActive",
+						"value": "1"
+					}
+				},
+				{
+					"callFunction": "DisplayEnemyData",
+					"sid": 788192222680938,
+					"disabled": true
+				}
+			],
+			"sid": 400870524533194
+		},
+		{
+			"eventType": "comment",
+			"text": "Set TurnOrder for each enemy when enemy turn starts, set TurnDone to false, count enemies"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 903798626621785,
+					"parameters": {
+						"variable": "Turn",
+						"comparison": 4,
+						"value": "0"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 782186825483463
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 593782356482421,
+					"parameters": {
+						"variable": "EnemiesActive",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "EnemyBases",
+					"sid": 432092018186971,
+					"parameters": {
+						"instance-variable": "TurnDone",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 195021534221079,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 567597621080746,
+							"parameters": {
+								"object": "EnemyBases",
+								"expression": "EnemyBases.UID",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 714855008339743,
+							"parameters": {
+								"variable": "EnemiesActive",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 513400900043809
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 172588235230885,
+							"parameters": {
+								"variable": "EnemiesActive",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 855706791088319,
+							"parameters": {
+								"variable": "Turn",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 750080847039925
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 141300025884687,
+							"parameters": {
+								"object": "EnemyBases",
+								"expression": "EnemyBases.UID",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "EnemyBases",
+							"sid": 116412242566498,
+							"parameters": {
+								"instance-variable": "TurnOrder",
+								"value": "1+loopindex"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "EnemyBases",
+							"sid": 191326082179811,
+							"parameters": {
+								"instance-variable": "LastInTurn",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 727571662341356,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyBases",
+									"sid": 513790822806837,
+									"parameters": {
+										"instance-variable": "TurnOrder",
+										"comparison": 0,
+										"value": "EnemiesActive"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "EnemyBases",
+									"sid": 172941444930981,
+									"parameters": {
+										"instance-variable": "LastInTurn",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 184416213014842
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "DisplayEnemyData",
+							"sid": 674497415542798,
+							"disabled": true
+						}
+					],
+					"sid": 351016715208208
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Enemy_UpDown",
+			"description": "Test enemy that moves up or down alternating every other turn",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "E_UpDownBase",
+							"sid": 573570861297782,
+							"parameters": {
+								"instance-variable": "TurnOrder",
+								"comparison": 0,
+								"value": "Turn"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "E_UpDownBase",
+							"sid": 964411229446962,
+							"parameters": {
+								"instance-variable": "TurnDone"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "E_UpDownBase",
+							"sid": 829584108502327,
+							"parameters": {
+								"instance-variable": "TurnInProgress"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "rotate-clockwise",
+							"objectClass": "E_UpDownMask",
+							"sid": 434679484364171,
+							"disabled": true,
+							"parameters": {
+								"degrees": "45"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_UpDownBase",
+							"sid": 751651053827849,
+							"parameters": {
+								"instance-variable": "TurnInProgress",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 232773853673414,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 503854263458008,
+									"parameters": {
+										"first-value": "Functions.PlayerDistance(E_UpDownBase.X, E_UpDownBase.Y)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Is in melee range to player"
+								}
+							],
+							"sid": 632453625515754,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "E_UpDownBase",
+											"sid": 444141175702553,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"comparison": 5,
+												"value": "Self.ActThAttack"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "DamagePlayer",
+											"sid": 388765705997918,
+											"parameters": [
+												"E_UpDownBase.meleeDmg"
+											]
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "E_UpDownBase",
+											"sid": 318715899221826,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"value": "0"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "PlayerBase",
+											"sid": 118207380974168,
+											"parameters": {
+												"object": "PfPing",
+												"layer": "0",
+												"image-point": "\"center\""
+											}
+										},
+										{
+											"id": "flash",
+											"objectClass": "PlayerMask",
+											"sid": 670532593019608,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.5"
+											}
+										}
+									],
+									"sid": 944213289652254
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 400700026832050
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "E_UpDownBase",
+											"sid": 464676362160030,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 991068294746641
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_UpDownBase",
+											"sid": 725671694199545,
+											"parameters": {
+												"instance-variable": "SkipPause",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_UpDownBase",
+											"sid": 202817771163479,
+											"breakpoint": true,
+											"parameters": {
+												"instance-variable": "TurnDone",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 422010422658569
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 526824515757559
+								}
+							],
+							"actions": [],
+							"sid": 675025924341044,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "E_UpDownBase",
+											"sid": 166805144973236,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"comparison": 5,
+												"value": "Self.ActThMove"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 293859781735293,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "E_UpDownBase",
+													"sid": 996762325356628,
+													"parameters": {
+														"instance-variable": "MoveUp"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-y",
+													"objectClass": "E_UpDownBase",
+													"sid": 122034351665828,
+													"parameters": {
+														"y": "Self.Y-Tile"
+													}
+												}
+											],
+											"sid": 468680321761839
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 806740621583882
+												}
+											],
+											"actions": [
+												{
+													"id": "set-y",
+													"objectClass": "E_UpDownBase",
+													"sid": 992709259612983,
+													"parameters": {
+														"y": "Self.Y+Tile"
+													}
+												}
+											],
+											"sid": 203535681166180
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "E_UpDownBase",
+													"sid": 322351415704108,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"value": "0"
+													}
+												},
+												{
+													"id": "toggle-boolean-instvar",
+													"objectClass": "E_UpDownBase",
+													"sid": 920622560648209,
+													"parameters": {
+														"instance-variable": "MoveUp"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_UpDownBase",
+													"sid": 850089490687992,
+													"parameters": {
+														"instance-variable": "SkipPause",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_UpDownBase",
+													"sid": 915783218904319,
+													"breakpoint": true,
+													"parameters": {
+														"instance-variable": "TurnDone",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 356696126844667
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 653720470367901
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "E_UpDownBase",
+											"sid": 953218622063302,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_UpDownBase",
+											"sid": 779618386711024,
+											"parameters": {
+												"instance-variable": "SkipPause",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_UpDownBase",
+											"sid": 784264344159892,
+											"breakpoint": true,
+											"parameters": {
+												"instance-variable": "TurnDone",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 250039019675226
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Set animation"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "E_UpDownBase",
+							"sid": 525847514987382,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"comparison": 5,
+								"value": "Self.ActThMove"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-speed",
+							"objectClass": "E_UpDownMask",
+							"sid": 688209589791959,
+							"parameters": {
+								"speed": "4"
+							}
+						}
+					],
+					"sid": 130117636093711
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "E_UpDownBase",
+							"sid": 347006018365360,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-speed",
+							"objectClass": "E_UpDownMask",
+							"sid": 974941466977622,
+							"parameters": {
+								"speed": "2"
+							}
+						}
+					],
+					"sid": 196824747620783
+				},
+				{
+					"eventType": "comment",
+					"text": "Highlight when about to be attacked"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "E_UpDownBase",
+							"sid": 682271837777915,
+							"parameters": {
+								"object": "MoveTile"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "E_UpDownMask",
+							"sid": 204763245241432,
+							"parameters": {
+								"color": "rgb(255, 150, 50)"
+							}
+						}
+					],
+					"sid": 406260118859679
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 405657859889402
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "E_UpDownMask",
+							"sid": 922889955380244,
+							"parameters": {
+								"color": "rgb(255, 255, 255)"
+							}
+						}
+					],
+					"sid": 639846736826859
+				}
+			],
+			"sid": 686839572324031
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Enemy_SlowChase",
+			"description": "Enemy that moves towards player every other turn\nDamages player instead if adjacent",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 824552165018177,
+							"parameters": {
+								"instance-variable": "TurnOrder",
+								"comparison": 0,
+								"value": "Turn"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 962363138417076,
+							"parameters": {
+								"instance-variable": "TurnDone"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 641129115072495,
+							"parameters": {
+								"instance-variable": "TurnInProgress"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "rotate-clockwise",
+							"objectClass": "E_SlowChaseMask",
+							"sid": 189457385764784,
+							"disabled": true,
+							"parameters": {
+								"degrees": "45"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 867442378045531,
+							"parameters": {
+								"instance-variable": "TurnInProgress",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 591146449498824,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 333235923906731,
+									"parameters": {
+										"first-value": "Functions.PlayerDistance(E_SlowChaseBase.X, E_SlowChaseBase.Y)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Is in melee range to player"
+								}
+							],
+							"sid": 545139554042881,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "E_SlowChaseBase",
+											"sid": 690882299738569,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"comparison": 5,
+												"value": "Self.ActThAttack"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "DamagePlayer",
+											"sid": 578896682801598,
+											"parameters": [
+												"E_SlowChaseBase.meleeDmg"
+											]
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "E_SlowChaseBase",
+											"sid": 717538188133412,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"value": "0"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "PlayerBase",
+											"sid": 432541200428271,
+											"parameters": {
+												"object": "PfPing",
+												"layer": "0",
+												"image-point": "\"center\""
+											}
+										},
+										{
+											"id": "flash",
+											"objectClass": "PlayerMask",
+											"sid": 903537469711460,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.5"
+											}
+										}
+									],
+									"sid": 603193932662887
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 871525098213225
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "E_SlowChaseBase",
+											"sid": 800249000146126,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 921203485276289
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_SlowChaseBase",
+											"sid": 328459142821232,
+											"parameters": {
+												"instance-variable": "SkipPause",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_SlowChaseBase",
+											"sid": 560381426156708,
+											"parameters": {
+												"instance-variable": "TurnDone",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 111859116831473
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 323914996792610
+								}
+							],
+							"actions": [],
+							"sid": 543413981926605,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "E_SlowChaseBase",
+											"sid": 270926822405685,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"comparison": 5,
+												"value": "Self.ActThMove"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "find-path",
+											"objectClass": "E_SlowChaseBase",
+											"sid": 745079404693807,
+											"behaviorType": "Pathfinding",
+											"parameters": {
+												"x": "PlayerBase.X",
+												"y": "PlayerBase.Y"
+											}
+										}
+									],
+									"sid": 850503308824993
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 818110366678241
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "E_SlowChaseBase",
+											"sid": 433633393360054,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_SlowChaseBase",
+											"sid": 109926311211338,
+											"parameters": {
+												"instance-variable": "SkipPause",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_SlowChaseBase",
+											"sid": 990632553281991,
+											"parameters": {
+												"instance-variable": "TurnDone",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 557440253164377
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-path-found",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 527450238342250,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Set EnemyMoveTile angle towards next pathfinding node"
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "EnemyMoveTile",
+							"sid": 702551115573505,
+							"parameters": {
+								"frame-number": "Functions.GetAngle45(\nE_SlowChaseBase.ImagePointX(\"center\"),\nE_SlowChaseBase.ImagePointY(\"center\"),\nE_SlowChaseBase.Pathfinding.NodeXAt(0),\nE_SlowChaseBase.Pathfinding.NodeYAt(0))/45"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 461351890349885,
+							"parameters": {
+								"x": "EnemyMoveTile.ImagePointX(\"position\")",
+								"y": "EnemyMoveTile.ImagePointY(\"position\")"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 858388613674324,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 125195446555855,
+							"parameters": {
+								"instance-variable": "SkipPause",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 880836900974272,
+							"parameters": {
+								"instance-variable": "TurnDone",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 165458451877291
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-failed-to-find-path",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 173945046436173,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 785959113327661,
+							"parameters": {
+								"instance-variable": "SkipPause",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 313325639775389,
+							"parameters": {
+								"instance-variable": "TurnDone",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 670373874896996
+				},
+				{
+					"eventType": "comment",
+					"text": "Set animation"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 416533578869349,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"comparison": 5,
+								"value": "Self.ActThMove"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-speed",
+							"objectClass": "E_SlowChaseMask",
+							"sid": 945057311095375,
+							"parameters": {
+								"speed": "6"
+							}
+						}
+					],
+					"sid": 121028431298373
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 829574399865534,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-speed",
+							"objectClass": "E_SlowChaseMask",
+							"sid": 104580840830604,
+							"parameters": {
+								"speed": "2"
+							}
+						}
+					],
+					"sid": 709280728169247
+				},
+				{
+					"eventType": "comment",
+					"text": "Highlight when about to be attacked"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "E_SlowChaseBase",
+							"sid": 126829952028256,
+							"parameters": {
+								"object": "MoveTile"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "E_SlowChaseMask",
+							"sid": 271936273138783,
+							"parameters": {
+								"color": "rgb(255, 150, 50)"
+							}
+						}
+					],
+					"sid": 615975616109468
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 783166706726988
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "E_SlowChaseMask",
+							"sid": 658451240810978,
+							"parameters": {
+								"color": "rgb(255, 255, 255)"
+							}
+						}
+					],
+					"sid": 194876443413285
+				}
+			],
+			"sid": 376696151413526
+		},
+		{
+			"eventType": "comment",
+			"text": "Set mask locations to bases"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 525805013799882
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "E_UpDownMask",
+					"sid": 747620067581453,
+					"parameters": {
+						"x": "E_UpDownBase.ImagePointX(\"center\")",
+						"y": "E_UpDownBase.ImagePointY(\"center\")"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "E_SlowChaseMask",
+					"sid": 476070432002946,
+					"parameters": {
+						"x": "E_SlowChaseBase.ImagePointX(\"center\")",
+						"y": "E_SlowChaseBase.ImagePointY(\"center\")"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "EnemyMoveTile",
+					"sid": 545857263838837,
+					"parameters": {
+						"x": "E_SlowChaseBase.X",
+						"y": "E_SlowChaseBase.Y"
+					}
+				}
+			],
+			"sid": 158649481078586
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "EnemyBases",
+					"sid": 899368152935717,
+					"parameters": {
+						"instance-variable": "TurnDone"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "EnemyBases",
+					"sid": 452476812872944,
+					"parameters": {
+						"instance-variable": "TurnInProgress"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "EnemyBases",
+					"sid": 237934606896280,
+					"breakpoint": true,
+					"parameters": {
+						"instance-variable": "TurnInProgress",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 831443687749116,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "EnemyBases",
+							"sid": 566745719295697,
+							"parameters": {
+								"instance-variable": "LastInTurn"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 894433293365648,
+							"parameters": {
+								"variable": "Turn",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 603097991066693
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 317583139828316
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "EnemyBases",
+							"sid": 215787148768617,
+							"parameters": {
+								"instance-variable": "SkipPause"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 499949099786879,
+							"parameters": {
+								"variable": "Turn",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 182385396146798
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 373664110936234
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "NextTurn",
+							"sid": 413772876090203
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 529048344741596,
+							"disabled": true,
+							"parameters": {
+								"variable": "Turn",
+								"value": "0.5"
+							}
+						}
+					],
+					"sid": 625618489854120
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "EnemyBases",
+							"sid": 938474695216161,
+							"disabled": true,
+							"parameters": {
+								"instance-variable": "TurnDone",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 466056161676967
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Turn checks",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "If there's no enemy for the current Turn, increment Turn (Check if there's no enemy with Turn TurnOrder, then if it's enemy turn add 1)"
+				},
+				{
+					"eventType": "comment",
+					"text": "If using TurnOrder != Turn, the statement would always be true so it has to be done in a slightly more Roundabout way (To Be Continued)"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "EnemyBases",
+							"sid": 902231177316161,
+							"parameters": {
+								"instance-variable": "TurnOrder",
+								"comparison": 0,
+								"value": "Turn"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 305438987590613
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 959416610788902
+						}
+					],
+					"actions": [],
+					"sid": 809155038371974,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 940534777829514,
+									"parameters": {
+										"variable": "Turn",
+										"comparison": 1,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 594169090335672,
+									"parameters": {
+										"first-value": "Turn % 1",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 962696732602901,
+									"parameters": {
+										"variable": "Turn",
+										"value": "1"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TXTerrors",
+									"sid": 134605730435660,
+									"parameters": {
+										"text": "\" nt\""
+									}
+								}
+							],
+							"sid": 950984853113048
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "EnemyBases",
+							"sid": 711921774591772,
+							"parameters": {
+								"instance-variable": "LastInTurn"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 143465207465622,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyBases",
+									"sid": 437243063451940,
+									"parameters": {
+										"instance-variable": "TurnOrder",
+										"comparison": 2,
+										"value": "Turn"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 134837669416036,
+									"parameters": {
+										"variable": "Turn",
+										"value": "0"
+									}
+								},
+								{
+									"id": "append-text",
+									"objectClass": "TXTerrors",
+									"sid": 223505090964082,
+									"parameters": {
+										"text": "\" ot\""
+									}
+								}
+							],
+							"sid": 110809410231143
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 150975597867234,
+							"parameters": {
+								"variable": "Turn",
+								"comparison": 4,
+								"value": "EnemiesActive"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 229804166747990,
+							"parameters": {
+								"variable": "Turn",
+								"value": "0"
+							}
+						},
+						{
+							"id": "append-text",
+							"objectClass": "TXTerrors",
+							"sid": 693345505459798,
+							"parameters": {
+								"text": "\" fe\""
+							}
+						}
+					],
+					"sid": 343259658425569
+				}
+			],
+			"sid": 784866365682747
+		}
+	],
+	"sid": 729823600340859
+}

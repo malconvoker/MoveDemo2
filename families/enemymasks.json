@@ -1,0 +1,18 @@
+{
+	"name": "EnemyMasks",
+	"plugin-id": "Sprite",
+	"sid": 352298570093805,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 354730378272546
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"E_UpDownMask",
+		"E_SlowChaseMask"
+	]
+}

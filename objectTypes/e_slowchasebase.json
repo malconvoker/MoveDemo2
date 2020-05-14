@@ -1,0 +1,64 @@
+{
+	"name": "E_SlowChaseBase",
+	"plugin-id": "Sprite",
+	"sid": 187598407422243,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7890097,
+						"collisionPoly": {
+							"points": [
+								0.05,
+								0.05,
+								0.5,
+								0.05,
+								0.95,
+								0.05,
+								0.95,
+								0.5,
+								0.95,
+								0.95,
+								0.5,
+								0.95,
+								0.05,
+								0.95,
+								0.05,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "center",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 482872983148220,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,49 @@
+{
+	"name": "OldMoveTile",
+	"plugin-id": "Sprite",
+	"sid": 839554839176056,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8942587,
+						"collisionPoly": {
+							"points": [
+								0.05,
+								0.05,
+								0.95,
+								0.05,
+								0.95,
+								0.95,
+								0.05,
+								0.95
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 619643640094047,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

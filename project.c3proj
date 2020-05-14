@@ -1,0 +1,298 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 19702,
+	"name": "L4MoveDemo",
+	"runtime": "c3",
+	"useWorker": true,
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Tilemap",
+			"name": "Tilemap",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pathfinding",
+			"name": "Pathfinding",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Flash",
+			"name": "Flash",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		}
+	],
+	"uniqueId": "0q5jywda9ru",
+	"objectTypes": {
+		"items": [
+			"TMdefault",
+			"Touch",
+			"Node",
+			"Collisions",
+			"PfPing",
+			"TMdungeon",
+			"TiledBackground",
+			"Keyboard"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"E_SlowChaseBase",
+					"E_SlowChaseMask",
+					"E_UpDownBase",
+					"E_UpDownMask",
+					"EnemyMoveTile"
+				],
+				"subfolders": [],
+				"name": "Enemies"
+			},
+			{
+				"items": [
+					"PlayerBase",
+					"PlayerMask",
+					"MoveTile",
+					"CursorTest"
+				],
+				"subfolders": [],
+				"name": "Player"
+			},
+			{
+				"items": [
+					"TXTcursorangle",
+					"TXTcursordistance",
+					"TXTenemydata",
+					"TXTmovedistance",
+					"TXTmovetiledata",
+					"TXTturn",
+					"TXThp",
+					"TXTerrors"
+				],
+				"subfolders": [],
+				"name": "DebugText"
+			},
+			{
+				"items": [
+					"CollisionSprite",
+					"OldMoveTile"
+				],
+				"subfolders": [],
+				"name": "Deprecated"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [
+		{
+			"members": [
+				"E_UpDownBase",
+				"E_UpDownMask"
+			],
+			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"E_SlowChaseBase",
+				"E_SlowChaseMask",
+				"EnemyMoveTile"
+			],
+			"selectMode": "normal"
+		}
+	],
+	"families": {
+		"items": [
+			"EnemyBases",
+			"EnemyMasks",
+			"Z_Sorting"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Layout 1",
+			"Layout 2"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Game",
+			"Global",
+			"Functions",
+			"Enemies",
+			"Player"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 309292325117508
+				},
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 857897906330117
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 500630452999212
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 651066136298032
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 383689370562176
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 143564154937980
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 824616920136969
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "Team Iron Move Demo",
+		"version": "0.3.0",
+		"author": "Malconvoker",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "com.malcon.games",
+		"pixelRounding": true,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-integer-scale",
+		"fullscreenQuality": "low",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "nearest",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true
+	},
+	"viewportWidth": 427,
+	"viewportHeight": 240,
+	"firstLayout": "Layout 2"
+}

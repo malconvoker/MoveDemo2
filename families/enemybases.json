@@ -1,0 +1,85 @@
+{
+	"name": "EnemyBases",
+	"plugin-id": "Sprite",
+	"sid": 988434271577437,
+	"instanceVariables": [
+		{
+			"name": "TurnOrder",
+			"type": "number",
+			"desc": "Which Turn number this enemy uses",
+			"sid": 737008300003913
+		},
+		{
+			"name": "LastInTurn",
+			"type": "boolean",
+			"desc": "Is this enemy the last in the turn order",
+			"sid": 166223235215109
+		},
+		{
+			"name": "ActTime",
+			"type": "number",
+			"desc": "Number of turns spent preparing for action, -1 randomizes",
+			"sid": 672932301266524
+		},
+		{
+			"name": "ActThMove",
+			"type": "number",
+			"desc": "Threshhold for \"idle\" turns required to move",
+			"sid": 222280585411326
+		},
+		{
+			"name": "ActThAttack",
+			"type": "number",
+			"desc": "Threshhold for \"idle\" turns required to attack",
+			"sid": 293093181967551
+		},
+		{
+			"name": "TurnDone",
+			"type": "boolean",
+			"desc": "Is the enemy done with their turn",
+			"sid": 408808042187170
+		},
+		{
+			"name": "TurnInProgress",
+			"type": "boolean",
+			"desc": "Is the turn currently being processed",
+			"sid": 320011080732413
+		},
+		{
+			"name": "maxhp",
+			"type": "number",
+			"desc": "",
+			"sid": 982051028609051
+		},
+		{
+			"name": "hp",
+			"type": "number",
+			"desc": "",
+			"sid": 465482436761383
+		},
+		{
+			"name": "meleeDmg",
+			"type": "number",
+			"desc": "Damage dealt by moving into player",
+			"sid": 487102875257544
+		},
+		{
+			"name": "SkipPause",
+			"type": "boolean",
+			"desc": "Skip the pause between enemy turns, = instant turn",
+			"sid": 602094647505018
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pathfinding",
+			"name": "Pathfinding",
+			"sid": 625310327085603
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"E_UpDownBase",
+		"E_SlowChaseBase"
+	]
+}
