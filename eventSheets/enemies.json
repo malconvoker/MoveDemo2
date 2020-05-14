@@ -316,6 +316,10 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "comment",
+					"text": "Execute turn"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -775,6 +779,10 @@
 			"description": "Enemy that moves towards player every other turn\nDamages player instead if adjacent",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "comment",
+					"text": "Execute turn"
+				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -1249,6 +1257,66 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "comment",
+					"text": "Line of sight"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-between-positions",
+							"objectClass": "E_SeeChaseBase",
+							"sid": 278697254456035,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"from-x": "Self.ImagePointX(\"center\")",
+								"from-y": "Self.ImagePointY(\"center\")",
+								"from-angle": "0",
+								"to-x": "PlayerBase.ImagePointX(\"center\")",
+								"to-y": "PlayerBase.ImagePointY(\"center\")"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_SeeChaseBase",
+							"sid": 691214265460635,
+							"parameters": {
+								"instance-variable": "SeesPlayer",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 756864228652227
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 624155700300565
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_SeeChaseBase",
+							"sid": 528661172732083,
+							"parameters": {
+								"instance-variable": "SeesPlayer",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 836324990401128
+				},
+				{
+					"eventType": "comment",
+					"text": "Execute turn"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -1444,6 +1512,14 @@
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 736415966880864,
+											"parameters": {
+												"instance-variable": "SeesPlayer"
+											}
+										},
+										{
 											"id": "compare-instance-variable",
 											"objectClass": "E_SeeChaseBase",
 											"sid": 198402740983841,
@@ -1614,53 +1690,63 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
+							"id": "is-boolean-instance-variable-set",
 							"objectClass": "E_SeeChaseBase",
-							"sid": 566106067836741,
+							"sid": 809685460029844,
 							"parameters": {
-								"instance-variable": "ActTime",
-								"comparison": 5,
-								"value": "Self.ActThMove"
+								"instance-variable": "SeesPlayer"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-animation-speed",
+							"id": "set-animation",
 							"objectClass": "E_SeeChaseMask",
-							"sid": 404771007286695,
+							"sid": 208459023633568,
 							"parameters": {
-								"speed": "6"
+								"animation": "\"active\"",
+								"from": "current-frame"
 							}
 						}
 					],
-					"sid": 284254811571620
+					"sid": 308886592027189,
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
+							"id": "is-boolean-instance-variable-set",
 							"objectClass": "E_SeeChaseBase",
-							"sid": 560132301540704,
+							"sid": 153397307741558,
 							"parameters": {
-								"instance-variable": "ActTime",
-								"comparison": 3,
-								"value": "0"
+								"instance-variable": "SeesPlayer"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 269987759282350,
+							"parameters": {
+								"first-value": "Functions.PlayerDistance(E_SeeChaseBase.X, E_SeeChaseBase.Y)",
+								"comparison": 4,
+								"second-value": "1"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-animation-speed",
+							"id": "set-animation",
 							"objectClass": "E_SeeChaseMask",
-							"sid": 791214300607609,
+							"sid": 275555531837362,
 							"parameters": {
-								"speed": "2"
+								"animation": "\"idle\"",
+								"from": "current-frame"
 							}
 						}
 					],
-					"sid": 531522188306314
+					"sid": 696106444709781
 				},
 				{
 					"eventType": "comment",

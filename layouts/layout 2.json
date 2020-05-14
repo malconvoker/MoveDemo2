@@ -657,7 +657,8 @@
 						"maxhp": 2,
 						"hp": 2,
 						"meleeDmg": 1,
-						"SkipPause": false
+						"SkipPause": false,
+						"SeesPlayer": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -721,7 +722,8 @@
 						"maxhp": 2,
 						"hp": 2,
 						"meleeDmg": 1,
-						"SkipPause": false
+						"SkipPause": false,
+						"SeesPlayer": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -785,7 +787,8 @@
 						"maxhp": 2,
 						"hp": 2,
 						"meleeDmg": 1,
-						"SkipPause": false
+						"SkipPause": false,
+						"SeesPlayer": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -1066,7 +1069,8 @@
 						"maxhp": 2,
 						"hp": 2,
 						"meleeDmg": 1,
-						"SkipPause": false
+						"SkipPause": false,
+						"SeesPlayer": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -1085,16 +1089,16 @@
 						},
 						"LineOfSight": {
 							"properties": {
-								"obstacles": "solids",
-								"range": 10000,
+								"obstacles": "custom",
+								"range": 2000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
 						}
 					},
 					"world": {
-						"x": 60,
-						"y": 200,
+						"x": 40,
+						"y": 180,
 						"width": 20,
 						"height": 20,
 						"originX": 0,
@@ -1130,7 +1134,8 @@
 						"maxhp": 2,
 						"hp": 2,
 						"meleeDmg": 1,
-						"SkipPause": false
+						"SkipPause": false,
+						"SeesPlayer": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -1149,8 +1154,8 @@
 						},
 						"LineOfSight": {
 							"properties": {
-								"obstacles": "solids",
-								"range": 10000,
+								"obstacles": "custom",
+								"range": 2000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}

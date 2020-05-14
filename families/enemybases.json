@@ -24,13 +24,13 @@
 		{
 			"name": "ActThMove",
 			"type": "number",
-			"desc": "Threshhold for \"idle\" turns required to move",
+			"desc": "Threshold for \"idle\" turns required to move",
 			"sid": 222280585411326
 		},
 		{
 			"name": "ActThAttack",
 			"type": "number",
-			"desc": "Threshhold for \"idle\" turns required to attack",
+			"desc": "Threshold for \"idle\" turns required to attack",
 			"sid": 293093181967551
 		},
 		{
@@ -68,6 +68,12 @@
 			"type": "boolean",
 			"desc": "Skip the pause between enemy turns, = instant turn",
 			"sid": 602094647505018
+		},
+		{
+			"name": "SeesPlayer",
+			"type": "boolean",
+			"desc": "Does the enemy see the player",
+			"sid": 223156821740076
 		}
 	],
 	"behaviorTypes": [
