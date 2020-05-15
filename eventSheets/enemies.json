@@ -1327,7 +1327,7 @@
 						{
 							"id": "set-boolean-instvar",
 							"objectClass": "E_SeeChaseBase",
-							"sid": 226875606838423,
+							"sid": 370016906820007,
 							"parameters": {
 								"instance-variable": "TurnInProgress",
 								"value": "true"
@@ -1697,7 +1697,12 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Does not see player, but is still chasing"
+										}
+									],
 									"sid": 265462941610594,
 									"children": [
 										{
