@@ -860,7 +860,7 @@
 					"world": {
 						"x": 200,
 						"y": -20,
-						"width": 17,
+						"width": 16,
 						"height": 23,
 						"originX": 0.5,
 						"originY": 0.7391304347826086,
@@ -878,7 +878,7 @@
 					"type": "PlayerMask",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "front",
+						"initial-animation": "idle",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false

@@ -21,6 +21,135 @@
 						"height": 22,
 						"originX": 0.5,
 						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8524771,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 398707,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 400451861636911,
+				"name": "idle",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 3
+			},
+			{
+				"frames": [
+					{
+						"width": 18,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3702192,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 18,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3047587,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 18,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8747421,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 691675352255359,
+				"name": "attack",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 9
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6663206,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7677972,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7634990,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 452306249254467,
+				"name": "walk",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 18
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
 						"originalSource": "C:\\Users\\mctur\\Downloads\\chr_spr_1-1.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
@@ -246,6 +375,65 @@
 				"repeatCount": 1,
 				"repeatTo": 0,
 				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1993943,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 917337,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3089105,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1972678,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 820648555446099,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 18
 			}
 		],
 		"subfolders": []

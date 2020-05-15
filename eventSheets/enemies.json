@@ -1173,6 +1173,32 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "E_SlowChaseBase",
+							"sid": 161513024411628,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-speed",
+							"objectClass": "E_SlowChaseMask",
+							"sid": 325684961659079,
+							"parameters": {
+								"speed": "2"
+							}
+						}
+					],
+					"sid": 352605311762727
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "E_SlowChaseBase",
 							"sid": 416533578869349,
 							"parameters": {
 								"instance-variable": "ActTime",
@@ -1191,7 +1217,8 @@
 							}
 						}
 					],
-					"sid": 121028431298373
+					"sid": 121028431298373,
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
@@ -1199,11 +1226,29 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "E_SlowChaseBase",
-							"sid": 829574399865534,
+							"sid": 783591583934717,
 							"parameters": {
 								"instance-variable": "ActTime",
-								"comparison": 3,
-								"value": "0"
+								"comparison": 5,
+								"value": "Self.ActThAttack"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 431244128957653,
+							"parameters": {
+								"object": "E_SlowChaseBase"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 651723149060667,
+							"parameters": {
+								"first-value": "Functions.PlayerDistance(E_SlowChaseBase.X, E_SlowChaseBase.Y)",
+								"comparison": 0,
+								"second-value": "1"
 							}
 						}
 					],
@@ -1211,13 +1256,14 @@
 						{
 							"id": "set-animation-speed",
 							"objectClass": "E_SlowChaseMask",
-							"sid": 104580840830604,
+							"sid": 421735800721931,
 							"parameters": {
-								"speed": "2"
+								"speed": "6"
 							}
 						}
 					],
-					"sid": 709280728169247
+					"sid": 797642008461428,
+					"disabled": true
 				},
 				{
 					"eventType": "comment",
@@ -1245,7 +1291,8 @@
 							}
 						}
 					],
-					"sid": 615975616109468
+					"sid": 615975616109468,
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",

@@ -2,6 +2,10 @@
 	"name": "Functions",
 	"events": [
 		{
+			"eventType": "comment",
+			"text": "Controls Functions"
+		},
+		{
 			"functionName": "GetTouchAngle",
 			"functionDescription": "Returns the angle to Touch from PlayerBase rounded to 45degrees",
 			"functionCategory": "",
@@ -217,6 +221,10 @@
 			]
 		},
 		{
+			"eventType": "comment",
+			"text": "Distance Functions"
+		},
+		{
 			"functionName": "TileDistance",
 			"functionDescription": "Returns the distance in tiles between two points",
 			"functionCategory": "",
@@ -371,6 +379,10 @@
 			"sid": 582656977885945
 		},
 		{
+			"eventType": "comment",
+			"text": "Damage Functions"
+		},
+		{
 			"functionName": "DamagePlayer",
 			"functionDescription": "Damage player character by inputted value",
 			"functionCategory": "",
@@ -399,6 +411,64 @@
 				}
 			],
 			"sid": 838345261368669
+		},
+		{
+			"functionName": "DamageEnemy",
+			"functionDescription": "Damage target enemy by inputted value",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Damage",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Damage to deal to enemy",
+					"sid": 942160691577775
+				},
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "UID of enemy to deal damage to",
+					"sid": 512046850619116
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 948632020912038,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "EnemyBases",
+							"sid": 441390591554434,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "EnemyBases",
+							"sid": 411726124895120,
+							"parameters": {
+								"instance-variable": "hp",
+								"value": "Damage"
+							}
+						}
+					],
+					"sid": 301872649599628
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Turn Functions"
 		},
 		{
 			"functionName": "NextTurn",
@@ -446,58 +516,8 @@
 			"sid": 227735025903153
 		},
 		{
-			"functionName": "DamageEnemy",
-			"functionDescription": "Damage target enemy by inputted value",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "Damage",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "Damage to deal to enemy",
-					"sid": 942160691577775
-				},
-				{
-					"name": "UID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "UID of enemy to deal damage to",
-					"sid": 512046850619116
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 932099397002087,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "EnemyBases",
-							"sid": 136616229341531,
-							"parameters": {
-								"unique-id": "UID"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-instvar",
-							"objectClass": "EnemyBases",
-							"sid": 195573870578256,
-							"parameters": {
-								"instance-variable": "hp",
-								"value": "Damage"
-							}
-						}
-					],
-					"sid": 646015231928047
-				}
-			]
+			"eventType": "comment",
+			"text": "Other Functions"
 		},
 		{
 			"functionName": "LOScheck",

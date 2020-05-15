@@ -385,6 +385,15 @@
 													]
 												},
 												{
+													"id": "set-animation",
+													"objectClass": "PlayerMask",
+													"sid": 434299000702168,
+													"parameters": {
+														"animation": "\"attack\"",
+														"from": "beginning"
+													}
+												},
+												{
 													"id": "play",
 													"objectClass": "Audio",
 													"sid": 542032422316901,
@@ -467,6 +476,15 @@
 													"parameters": {
 														"x": "MoveTile.ImagePointX(\"position\")",
 														"y": "MoveTile.ImagePointY(\"position\")"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "PlayerMask",
+													"sid": 761270537621973,
+													"parameters": {
+														"animation": "\"walk\"",
+														"from": "beginning"
 													}
 												},
 												{
@@ -697,6 +715,40 @@
 				}
 			],
 			"sid": 804763867055242
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-animation-finished",
+					"objectClass": "PlayerMask",
+					"sid": 629536571030210,
+					"parameters": {
+						"animation": "\"walk\""
+					}
+				},
+				{
+					"id": "on-animation-finished",
+					"objectClass": "PlayerMask",
+					"sid": 258562741647958,
+					"parameters": {
+						"animation": "\"attack\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "PlayerMask",
+					"sid": 920494754950262,
+					"parameters": {
+						"animation": "\"idle\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 690884278422999,
+			"isOrBlock": true
 		}
 	],
 	"sid": 674070928567353
