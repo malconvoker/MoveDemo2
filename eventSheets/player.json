@@ -385,6 +385,17 @@
 													]
 												},
 												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 542032422316901,
+													"parameters": {
+														"audio-file": "hit_test",
+														"loop": "not-looping",
+														"volume": "-5",
+														"tag-optional": "\"\""
+													}
+												},
+												{
 													"id": "subtract-from-instvar",
 													"objectClass": "EnemyBases",
 													"sid": 316157160772868,
@@ -456,6 +467,17 @@
 													"parameters": {
 														"x": "MoveTile.ImagePointX(\"position\")",
 														"y": "MoveTile.ImagePointY(\"position\")"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 886388528710042,
+													"parameters": {
+														"audio-file": "walk_sound_test",
+														"loop": "not-looping",
+														"volume": "0",
+														"tag-optional": "\"\""
 													}
 												},
 												{

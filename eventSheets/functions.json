@@ -217,6 +217,82 @@
 			]
 		},
 		{
+			"functionName": "TileDistance",
+			"functionDescription": "Returns the distance in tiles between two points",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "X1",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "X of first point",
+					"sid": 948918938094500
+				},
+				{
+					"name": "Y1",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Y of first point",
+					"sid": 349679389719040
+				},
+				{
+					"name": "X2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "X of second point",
+					"sid": 562325942979530
+				},
+				{
+					"name": "Y2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Y of second point",
+					"sid": 718424904250236
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "Returns distance between two tiles (diagonals =1)"
+				},
+				{
+					"id": "set-text",
+					"objectClass": "TXTmovedistance",
+					"sid": 551967756646411,
+					"disabled": true,
+					"parameters": {
+						"text": "abs((CursorTest.X-PlayerBase.X)/Tile) & \", \" & abs((CursorTest.Y-PlayerBase.Y)/Tile) & \": \" & max(abs((CursorTest.X-PlayerBase.X)/Tile), abs((CursorTest.Y-PlayerBase.Y)/Tile))"
+					}
+				},
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 262867071896114,
+					"disabled": true,
+					"parameters": {
+						"value": "max(abs(floor((X1-X2)/Tile)), abs(floor((Y1-Y2)/Tile)))"
+					}
+				},
+				{
+					"type": "comment",
+					"text": "Try without rounding down?"
+				},
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 196334819418125,
+					"parameters": {
+						"value": "max(abs((X1-X2)/Tile), abs((Y1-Y2)/Tile))"
+					}
+				}
+			],
+			"sid": 749858027451949
+		},
+		{
 			"functionName": "CursorDistance",
 			"functionDescription": "Returns the distance in tiles between PlayerBase and Cursor",
 			"functionCategory": "",
@@ -233,15 +309,16 @@
 				{
 					"id": "set-text",
 					"objectClass": "TXTcursordistance",
-					"sid": 895551077578967,
+					"sid": 773266842879776,
 					"parameters": {
-						"text": "\"CursorDist \" &\nabs((CursorTest.X-PlayerBase.X)/Tile) & \", \" &\nabs((CursorTest.Y-PlayerBase.Y)/Tile) & \": \" &\nmax(abs((CursorTest.X-PlayerBase.X)/Tile), abs((CursorTest.Y-PlayerBase.Y)/Tile))"
+						"text": "\"Cursor Distance: \" & newline &\nabs((CursorTest.X-PlayerBase.X)/Tile) & \", \" &\nabs((CursorTest.Y-PlayerBase.Y)/Tile) & \": \" &\nmax(abs((CursorTest.X-PlayerBase.X)/Tile), abs((CursorTest.Y-PlayerBase.Y)/Tile))"
 					}
 				},
 				{
 					"id": "set-function-return-value",
 					"objectClass": "Functions",
 					"sid": 728801597057744,
+					"disabled": true,
 					"parameters": {
 						"value": "max(abs((CursorTest.X-PlayerBase.X)/Tile), abs((CursorTest.Y-PlayerBase.Y)/Tile))"
 					}
@@ -250,7 +327,6 @@
 					"id": "set-function-return-value",
 					"objectClass": "Functions",
 					"sid": 262708574632637,
-					"disabled": true,
 					"parameters": {
 						"value": "Functions.TileDistance(CursorTest.X,CursorTest.Y, PlayerBase.X,PlayerBase.Y)"
 					}
@@ -293,65 +369,6 @@
 				}
 			],
 			"sid": 582656977885945
-		},
-		{
-			"functionName": "TileDistance",
-			"functionDescription": "Returns the distance in tiles between two points",
-			"functionCategory": "",
-			"functionReturnType": "number",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "X1",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "X of first point",
-					"sid": 948918938094500
-				},
-				{
-					"name": "Y1",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "Y of first point",
-					"sid": 349679389719040
-				},
-				{
-					"name": "X2",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "X of second point",
-					"sid": 562325942979530
-				},
-				{
-					"name": "Y2",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "Y of second point",
-					"sid": 718424904250236
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "TXTmovedistance",
-					"sid": 398277617406924,
-					"disabled": true,
-					"parameters": {
-						"text": "abs((CursorTest.X-PlayerBase.X)/Tile) & \", \" & abs((CursorTest.Y-PlayerBase.Y)/Tile) & \": \" & max(abs((CursorTest.X-PlayerBase.X)/Tile), abs((CursorTest.Y-PlayerBase.Y)/Tile))"
-					}
-				},
-				{
-					"id": "set-function-return-value",
-					"objectClass": "Functions",
-					"sid": 866618493859531,
-					"parameters": {
-						"value": "max(abs(floor((X1-X2)/Tile)), abs(floor((Y1-Y2)/Tile)))"
-					}
-				}
-			],
-			"sid": 692891348368683
 		},
 		{
 			"functionName": "DamagePlayer",
@@ -483,6 +500,183 @@
 			]
 		},
 		{
+			"functionName": "LOScheck",
+			"functionDescription": "Checks LOS between two tiles from center to tile corners, 1=true",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "StartX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "X of tile to check LOS from",
+					"sid": 152961395360591
+				},
+				{
+					"name": "StartY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Y of tile to check LOS from",
+					"sid": 604889158065156
+				},
+				{
+					"name": "DestX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "X of tile to check LOS to",
+					"sid": 291219027253956
+				},
+				{
+					"name": "DestY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Y of tile to check LOS to",
+					"sid": 943093844987604
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "Checks LOS between two tiles from Start center to Dest tile corners, 1=true"
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 419653414620781,
+					"parameters": {
+						"variable": "StartX",
+						"value": "StartX+Tile/2"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 164196374188463,
+					"parameters": {
+						"variable": "StartY",
+						"value": "StartY+Tile/2"
+					}
+				}
+			],
+			"sid": 330982617689977,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-between-positions",
+							"objectClass": "LOS",
+							"sid": 656136997993567,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"from-x": "StartX",
+								"from-y": "StartY",
+								"from-angle": "0",
+								"to-x": "DestX+Tile/2",
+								"to-y": "DestY+Tile/2"
+							}
+						},
+						{
+							"id": "has-los-between-positions",
+							"objectClass": "LOS",
+							"sid": 505989066141757,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"from-x": "StartX",
+								"from-y": "StartY",
+								"from-angle": "0",
+								"to-x": "DestX+1",
+								"to-y": "DestY+1"
+							}
+						},
+						{
+							"id": "has-los-between-positions",
+							"objectClass": "LOS",
+							"sid": 194192338081829,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"from-x": "StartX",
+								"from-y": "StartY",
+								"from-angle": "0",
+								"to-x": "DestX+Tile-1",
+								"to-y": "DestY+1"
+							}
+						},
+						{
+							"id": "has-los-between-positions",
+							"objectClass": "LOS",
+							"sid": 558996770131714,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"from-x": "StartX",
+								"from-y": "StartY",
+								"from-angle": "0",
+								"to-x": "DestX+1",
+								"to-y": "DestY+Tile-1"
+							}
+						},
+						{
+							"id": "has-los-between-positions",
+							"objectClass": "LOS",
+							"sid": 518681974950762,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"from-x": "StartX",
+								"from-y": "StartY",
+								"from-angle": "0",
+								"to-x": "DestX+Tile-1",
+								"to-y": "DestY+Tile-1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Center, Top left, Top right, Bottom left, Bottom right"
+						},
+						{
+							"type": "comment",
+							"text": "Corners are offset by 1 pixel in each direction towards the center of the tile"
+						},
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 263686126325884,
+							"parameters": {
+								"value": "1"
+							}
+						}
+					],
+					"sid": 232085472739558,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 326353859323762
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 454496807189639,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 252376746140696
+				}
+			]
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "DebugFunctions",
@@ -502,9 +696,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "TXTturn",
-							"sid": 469917594782430,
+							"sid": 565873041671567,
 							"parameters": {
-								"text": "\"Enemies: \" & EnemiesActive & \"; Turn \" & Turn"
+								"text": "\"Enemies: \" & EnemiesActive & newline & \"Turn \" & Turn"
 							}
 						},
 						{
@@ -519,63 +713,77 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "for-each-ordered",
-									"objectClass": "System",
-									"sid": 881732681537504,
-									"parameters": {
-										"object": "EnemyBases",
-										"expression": "EnemyBases.UID",
-										"order": "ascending"
-									}
+									"id": "is-visible",
+									"objectClass": "TXTturn",
+									"sid": 112492516324044
 								}
 							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "EnemyBases",
-									"sid": 821604617139240,
-									"parameters": {
-										"object": "TXTenemydata",
-										"layer": "0",
-										"image-point": "0"
-									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "TXTenemydata",
-									"sid": 733767473029818,
-									"parameters": {
-										"text": "EnemyBases.hp & \"/\" & EnemyBases.maxhp & \" \" & EnemyBases.ActTime & \"/\" & EnemyBases.ActThMove & \" \" & EnemyBases.TurnOrder"
-									}
-								}
-							],
-							"sid": 402372514458566,
+							"actions": [],
+							"sid": 697913624283565,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "EnemyBases",
-											"sid": 245644819097363,
+											"id": "for-each-ordered",
+											"objectClass": "System",
+											"sid": 677499614317180,
 											"parameters": {
-												"instance-variable": "TurnOrder",
-												"comparison": 0,
-												"value": "EnemiesActive"
+												"object": "EnemyBases",
+												"expression": "EnemyBases.UID",
+												"order": "ascending"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "append-text",
-											"objectClass": "TXTenemydata",
-											"sid": 306765284596397,
+											"id": "spawn-another-object",
+											"objectClass": "EnemyBases",
+											"sid": 605204295235934,
 											"parameters": {
-												"text": "\"*\""
+												"object": "TXTenemydata",
+												"layer": "0",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "TXTenemydata",
+											"sid": 142601417842468,
+											"parameters": {
+												"text": "EnemyBases.hp & \"/\" & EnemyBases.maxhp & \" \" & EnemyBases.ActTime & \"/\" & EnemyBases.ActThMove & \" \" & EnemyBases.TurnOrder"
 											}
 										}
 									],
-									"sid": 449339832456438
+									"sid": 683973500058617,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "EnemyBases",
+													"sid": 305201522756588,
+													"parameters": {
+														"instance-variable": "TurnOrder",
+														"comparison": 0,
+														"value": "EnemiesActive"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "append-text",
+													"objectClass": "TXTenemydata",
+													"sid": 362725731134196,
+													"parameters": {
+														"text": "\"*\""
+													}
+												}
+											],
+											"sid": 419845277925158
+										}
+									]
 								}
 							]
 						}

@@ -3,7 +3,20 @@
 	"plugin-id": "Sprite",
 	"sid": 834771494443152,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "PlayerSeenX",
+			"type": "number",
+			"desc": "Last X Coordinate Player was seen in",
+			"sid": 982932985506188
+		},
+		{
+			"name": "PlayerSeenY",
+			"type": "number",
+			"desc": "Last Y Coordinate Player was seen in",
+			"sid": 864333669721436
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {

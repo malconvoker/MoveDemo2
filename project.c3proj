@@ -55,6 +55,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Pathfinding",
 			"name": "Pathfinding",
@@ -89,7 +97,9 @@
 			"PfPing",
 			"TMdungeon",
 			"TiledBackground",
-			"Keyboard"
+			"Keyboard",
+			"LOS",
+			"Audio"
 		],
 		"subfolders": [
 			{
@@ -101,7 +111,8 @@
 					"SlowChaseMoveTile",
 					"E_SeeChaseBase",
 					"E_SeeChaseMask",
-					"SeeChaseMoveTile"
+					"SeeChaseMoveTile",
+					"indicator"
 				],
 				"subfolders": [],
 				"name": "Enemies"
@@ -177,7 +188,8 @@
 	"layouts": {
 		"items": [
 			"Layout 1",
-			"Layout 2"
+			"Layout 2",
+			"Layout 3"
 		],
 		"subfolders": []
 	},
@@ -197,7 +209,18 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "hit_test.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 860606271946250
+				},
+				{
+					"name": "walk_sound_test.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 401384647778760
+				}
+			],
 			"subfolders": []
 		},
 		"music": {

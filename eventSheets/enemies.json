@@ -418,6 +418,17 @@
 											]
 										},
 										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 320416661865508,
+											"parameters": {
+												"audio-file": "hit_test",
+												"loop": "not-looping",
+												"volume": "-5",
+												"tag-optional": "\"\""
+											}
+										},
+										{
 											"id": "set-instvar-value",
 											"objectClass": "E_UpDownBase",
 											"sid": 318715899221826,
@@ -882,6 +893,17 @@
 											]
 										},
 										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 644617240115607,
+											"parameters": {
+												"audio-file": "hit_test",
+												"loop": "not-looping",
+												"volume": "-5",
+												"tag-optional": "\"\""
+											}
+										},
+										{
 											"id": "set-instvar-value",
 											"objectClass": "E_SlowChaseBase",
 											"sid": 717538188133412,
@@ -1258,62 +1280,6 @@
 			"children": [
 				{
 					"eventType": "comment",
-					"text": "Line of sight"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "has-los-between-positions",
-							"objectClass": "E_SeeChaseBase",
-							"sid": 278697254456035,
-							"behaviorType": "LineOfSight",
-							"parameters": {
-								"from-x": "Self.ImagePointX(\"center\")",
-								"from-y": "Self.ImagePointY(\"center\")",
-								"from-angle": "0",
-								"to-x": "PlayerBase.ImagePointX(\"center\")",
-								"to-y": "PlayerBase.ImagePointY(\"center\")"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "E_SeeChaseBase",
-							"sid": 691214265460635,
-							"parameters": {
-								"instance-variable": "SeesPlayer",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 756864228652227
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 624155700300565
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "E_SeeChaseBase",
-							"sid": 528661172732083,
-							"parameters": {
-								"instance-variable": "SeesPlayer",
-								"value": "false"
-							}
-						}
-					],
-					"sid": 836324990401128
-				},
-				{
-					"eventType": "comment",
 					"text": "Execute turn"
 				},
 				{
@@ -1396,6 +1362,86 @@
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 315228057372951,
+											"parameters": {
+												"instance-variable": "SeesPlayer"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 401564460069413,
+											"parameters": {
+												"instance-variable": "SeesPlayer",
+												"value": "true"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "E_SeeChaseMask",
+											"sid": 546229092794970,
+											"parameters": {
+												"object": "indicator",
+												"layer": "0",
+												"image-point": "\"indicator\""
+											}
+										}
+									],
+									"sid": 684172390412902
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 989747894410869,
+											"parameters": {
+												"instance-variable": "Active"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 616903181076785,
+											"parameters": {
+												"instance-variable": "PlayerSeenX",
+												"value": "PlayerBase.X"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 922191746808397,
+											"parameters": {
+												"instance-variable": "PlayerSeenY",
+												"value": "PlayerBase.Y"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 617636448450381,
+											"parameters": {
+												"instance-variable": "Active",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 426439395340284
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
 											"id": "compare-instance-variable",
 											"objectClass": "E_SeeChaseBase",
 											"sid": 228799571379325,
@@ -1413,6 +1459,17 @@
 											"parameters": [
 												"E_SeeChaseBase.meleeDmg"
 											]
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 115864590791514,
+											"parameters": {
+												"audio-file": "hit_test",
+												"loop": "not-looping",
+												"volume": "-5",
+												"tag-optional": "\"\""
+											}
 										},
 										{
 											"id": "set-instvar-value",
@@ -1512,37 +1569,326 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "E_SeeChaseBase",
-											"sid": 736415966880864,
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 380331259660885,
 											"parameters": {
-												"instance-variable": "SeesPlayer"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "E_SeeChaseBase",
-											"sid": 198402740983841,
-											"parameters": {
-												"instance-variable": "ActTime",
-												"comparison": 5,
-												"value": "Self.ActThMove"
+												"first-value": "Functions.LOScheck(E_SeeChaseBase.X, E_SeeChaseBase.Y, PlayerBase.X, PlayerBase.Y)",
+												"comparison": 0,
+												"second-value": "1"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "find-path",
+											"type": "comment",
+											"text": "Sees Player"
+										},
+										{
+											"id": "set-instvar-value",
 											"objectClass": "E_SeeChaseBase",
-											"sid": 976266035327103,
-											"behaviorType": "Pathfinding",
+											"sid": 545645047793846,
 											"parameters": {
-												"x": "PlayerBase.X",
-												"y": "PlayerBase.Y"
+												"instance-variable": "PlayerSeenX",
+												"value": "PlayerBase.X"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 724288239108224,
+											"parameters": {
+												"instance-variable": "PlayerSeenY",
+												"value": "PlayerBase.Y"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 571753110891595,
+											"parameters": {
+												"instance-variable": "Active",
+												"value": "true"
 											}
 										}
 									],
-									"sid": 400012039802720
+									"sid": 400012039802720,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 632581407296530,
+													"parameters": {
+														"instance-variable": "SeesPlayer"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 804431392967665,
+													"parameters": {
+														"instance-variable": "SeesPlayer",
+														"value": "true"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "E_SeeChaseMask",
+													"sid": 225962801606624,
+													"parameters": {
+														"object": "indicator",
+														"layer": "0",
+														"image-point": "\"indicator\""
+													}
+												}
+											],
+											"sid": 615489432960574
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 118995852283257,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"comparison": 5,
+														"value": "Self.ActThMove"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "find-path",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 521158433842100,
+													"behaviorType": "Pathfinding",
+													"parameters": {
+														"x": "PlayerBase.X",
+														"y": "PlayerBase.Y"
+													}
+												}
+											],
+											"sid": 577880553297578
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 106890843136939
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 666044424323598,
+											"parameters": {
+												"instance-variable": "Active"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 265462941610594,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 541509248564684,
+													"parameters": {
+														"instance-variable": "SeesPlayer"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 257836104009887,
+													"parameters": {
+														"instance-variable": "SeesPlayer",
+														"value": "false"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "E_SeeChaseMask",
+													"sid": 143585061569094,
+													"parameters": {
+														"object": "indicator",
+														"layer": "0",
+														"image-point": "\"indicator\""
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "indicator",
+													"sid": 360880338966420,
+													"parameters": {
+														"animation": "\"question\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 126552989646327
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 600109497747232,
+													"parameters": {
+														"instance-variable": "PlayerSeenX",
+														"comparison": 0,
+														"value": "Self.X"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 781862241002906,
+													"parameters": {
+														"instance-variable": "PlayerSeenY",
+														"comparison": 0,
+														"value": "Self.Y"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 633505971737077,
+													"parameters": {
+														"instance-variable": "PlayerSeenX",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 443852013198723,
+													"parameters": {
+														"instance-variable": "PlayerSeenY",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 813357117793712,
+													"parameters": {
+														"instance-variable": "Active",
+														"value": "false"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "E_SeeChaseMask",
+													"sid": 329337557426025,
+													"parameters": {
+														"object": "indicator",
+														"layer": "0",
+														"image-point": "\"indicator\""
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "indicator",
+													"sid": 366569263618099,
+													"parameters": {
+														"animation": "\"question\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 179976231446300,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 376747108373108,
+													"parameters": {
+														"instance-variable": "SkipPause",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 315034797568980,
+													"parameters": {
+														"instance-variable": "TurnDone",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 614481393253784
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 205112219119570
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 407226038297188,
+													"parameters": {
+														"instance-variable": "PlayerSeenX",
+														"comparison": 4,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 108437325053240,
+													"parameters": {
+														"instance-variable": "PlayerSeenY",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "find-path",
+													"objectClass": "E_SeeChaseBase",
+													"sid": 868606272592097,
+													"behaviorType": "Pathfinding",
+													"parameters": {
+														"x": "Self.PlayerSeenX",
+														"y": "Self.PlayerSeenY"
+													}
+												}
+											],
+											"sid": 988329318524293
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -1621,6 +1967,15 @@
 							}
 						},
 						{
+							"id": "set-position",
+							"objectClass": "E_SeeChaseMask",
+							"sid": 818291533117058,
+							"parameters": {
+								"x": "E_SeeChaseBase.ImagePointX(\"center\")",
+								"y": "E_SeeChaseBase.ImagePointY(\"center\")"
+							}
+						},
+						{
 							"id": "set-instvar-value",
 							"objectClass": "E_SeeChaseBase",
 							"sid": 983844530927322,
@@ -1648,7 +2003,158 @@
 							}
 						}
 					],
-					"sid": 702944597650369
+					"sid": 702944597650369,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Recheck if sees player"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 586360740280878,
+									"parameters": {
+										"first-value": "Functions.LOScheck(E_SeeChaseBase.X, E_SeeChaseBase.Y, PlayerBase.X, PlayerBase.Y)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Sees Player"
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "E_SeeChaseBase",
+									"sid": 670949157124805,
+									"parameters": {
+										"instance-variable": "PlayerSeenX",
+										"value": "PlayerBase.X"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "E_SeeChaseBase",
+									"sid": 167002567450191,
+									"parameters": {
+										"instance-variable": "PlayerSeenY",
+										"value": "PlayerBase.Y"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "E_SeeChaseBase",
+									"sid": 845568629093815,
+									"parameters": {
+										"instance-variable": "Active",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 853439757765094,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 445528819393302,
+											"parameters": {
+												"instance-variable": "SeesPlayer"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 235283952651385,
+											"parameters": {
+												"instance-variable": "SeesPlayer",
+												"value": "true"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "E_SeeChaseMask",
+											"sid": 843316085993857,
+											"parameters": {
+												"object": "indicator",
+												"layer": "0",
+												"image-point": "\"indicator\""
+											}
+										}
+									],
+									"sid": 379284446094716
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 288562544172876
+								}
+							],
+							"actions": [],
+							"sid": 711426342612929,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 970057756838657,
+											"parameters": {
+												"instance-variable": "SeesPlayer"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 599866160528975,
+											"parameters": {
+												"instance-variable": "SeesPlayer",
+												"value": "false"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "E_SeeChaseMask",
+											"sid": 959332238789948,
+											"parameters": {
+												"object": "indicator",
+												"layer": "0",
+												"image-point": "\"indicator\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "indicator",
+											"sid": 601653894161906,
+											"parameters": {
+												"animation": "\"question\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 511544250319842
+								}
+							]
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -1692,9 +2198,9 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "E_SeeChaseBase",
-							"sid": 809685460029844,
+							"sid": 764472831593424,
 							"parameters": {
-								"instance-variable": "SeesPlayer"
+								"instance-variable": "Active"
 							}
 						}
 					],
@@ -1702,7 +2208,7 @@
 						{
 							"id": "set-animation",
 							"objectClass": "E_SeeChaseMask",
-							"sid": 208459023633568,
+							"sid": 688550126185854,
 							"parameters": {
 								"animation": "\"active\"",
 								"from": "current-frame"
@@ -1716,23 +2222,9 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "E_SeeChaseBase",
-							"sid": 153397307741558,
-							"parameters": {
-								"instance-variable": "SeesPlayer"
-							},
-							"isInverted": true
-						},
-						{
-							"id": "compare-two-values",
+							"id": "else",
 							"objectClass": "System",
-							"sid": 269987759282350,
-							"parameters": {
-								"first-value": "Functions.PlayerDistance(E_SeeChaseBase.X, E_SeeChaseBase.Y)",
-								"comparison": 4,
-								"second-value": "1"
-							}
+							"sid": 469968196652827
 						}
 					],
 					"actions": [
@@ -1887,7 +2379,6 @@
 					"id": "set-boolean-instvar",
 					"objectClass": "EnemyBases",
 					"sid": 237934606896280,
-					"breakpoint": true,
 					"parameters": {
 						"instance-variable": "TurnInProgress",
 						"value": "false"

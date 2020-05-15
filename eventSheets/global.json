@@ -95,8 +95,8 @@
 				},
 				{
 					"id": "add-obstacle",
-					"objectClass": "EnemyBases",
-					"sid": 953410958680879,
+					"objectClass": "LOS",
+					"sid": 457914903232999,
 					"behaviorType": "LineOfSight",
 					"parameters": {
 						"obstacle": "Collisions"

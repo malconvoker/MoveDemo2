@@ -74,6 +74,12 @@
 			"type": "boolean",
 			"desc": "Does the enemy see the player",
 			"sid": 223156821740076
+		},
+		{
+			"name": "Active",
+			"type": "boolean",
+			"desc": "Is the enemy active, not used for all enemies",
+			"sid": 260966603048478
 		}
 	],
 	"behaviorTypes": [
@@ -81,11 +87,6 @@
 			"behaviorId": "Pathfinding",
 			"name": "Pathfinding",
 			"sid": 625310327085603
-		},
-		{
-			"behaviorId": "LOS",
-			"name": "LineOfSight",
-			"sid": 892761181127659
 		}
 	],
 	"effectTypes": [],

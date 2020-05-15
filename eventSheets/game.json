@@ -54,9 +54,9 @@
 				{
 					"id": "set-text",
 					"objectClass": "TXTcursorangle",
-					"sid": 592333950038527,
+					"sid": 978954492352521,
 					"parameters": {
-						"text": "\"Touch \" & Functions.GetTouchAngle & \"°, Move \" & PlayerBase.MoveAngle & \"°\""
+						"text": "\"Touch \" & Functions.GetTouchAngle & \"°\" & newline & \"Move \" & PlayerBase.MoveAngle & \"°\""
 					}
 				},
 				{
@@ -95,7 +95,7 @@
 					"actions": [
 						{
 							"id": "set-angle",
-							"objectClass": "CollisionSprite",
+							"objectClass": "LOS",
 							"sid": 115464768060586,
 							"parameters": {
 								"angle": "Functions.CursorDistance"
@@ -756,6 +756,24 @@
 			"sid": 772248838656393
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 943776867804509
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-top",
+					"objectClass": "indicator",
+					"sid": 976212855918530
+				}
+			],
+			"sid": 156823323105485
+		},
+		{
 			"eventType": "comment",
 			"text": "Checks if Turn is X.5, so transitioning to next turn"
 		},
@@ -865,6 +883,96 @@
 				}
 			],
 			"sid": 552201617916488
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 208397739765787,
+					"parameters": {
+						"key": 68
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "TXTcursorangle",
+					"sid": 571817503950423,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "TXTcursordistance",
+					"sid": 184738490510671,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "TXTerrors",
+					"sid": 322577249243131,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "TXTmovedistance",
+					"sid": 422595479911035,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "TXTmovetiledata",
+					"sid": 133170350060246,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "TXTturn",
+					"sid": 537465486038063,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "TXTenemydata",
+					"sid": 539020564058140,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				}
+			],
+			"sid": 621916167344321
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-animation-finished",
+					"objectClass": "indicator",
+					"sid": 500779347119052
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "indicator",
+					"sid": 555091162487390
+				}
+			],
+			"sid": 670525113213056
 		}
 	],
 	"sid": 301707553409410
