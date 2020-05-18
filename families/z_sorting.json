@@ -9,6 +9,7 @@
 		"E_SlowChaseMask",
 		"E_UpDownMask",
 		"PlayerMask",
-		"E_SeeChaseMask"
+		"E_SeeChaseMask",
+		"E_RangedMask"
 	]
 }

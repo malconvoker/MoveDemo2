@@ -148,12 +148,31 @@
 					}
 				},
 				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "PlayerBase",
+					"sid": 708284531329698,
+					"parameters": {
+						"instance-variable": "TurnInProgress"
+					}
+				},
+				{
 					"id": "trigger-once-while-true",
 					"objectClass": "System",
-					"sid": 782186825483463
+					"sid": 782186825483463,
+					"disabled": true
 				}
 			],
 			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "PlayerBase",
+					"sid": 974800576428490,
+					"breakpoint": true,
+					"parameters": {
+						"instance-variable": "TurnInProgress",
+						"value": "false"
+					}
+				},
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
@@ -201,33 +220,6 @@
 						}
 					],
 					"sid": 513400900043809
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 172588235230885,
-							"parameters": {
-								"variable": "EnemiesActive",
-								"comparison": 0,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 855706791088319,
-							"parameters": {
-								"variable": "Turn",
-								"value": "0"
-							}
-						}
-					],
-					"sid": 750080847039925
 				},
 				{
 					"eventType": "block",
@@ -307,6 +299,53 @@
 					"sid": 351016715208208
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 409477642183373,
+					"parameters": {
+						"variable": "EnemiesActive",
+						"comparison": 0,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 147317152701857,
+					"parameters": {
+						"variable": "Turn",
+						"comparison": 4,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 134223911776095,
+					"parameters": {
+						"first-value": "Turn % 1",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 124792801770287,
+					"parameters": {
+						"variable": "Turn",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 753423046417661
 		},
 		{
 			"eventType": "group",
@@ -865,7 +904,7 @@
 							"actions": [
 								{
 									"type": "comment",
-									"text": "Is in melee range to player"
+									"text": "Is in melee range to Player"
 								}
 							],
 							"sid": 545139554042881,
@@ -904,15 +943,6 @@
 											}
 										},
 										{
-											"id": "set-instvar-value",
-											"objectClass": "E_SlowChaseBase",
-											"sid": 717538188133412,
-											"parameters": {
-												"instance-variable": "ActTime",
-												"value": "0"
-											}
-										},
-										{
 											"id": "spawn-another-object",
 											"objectClass": "PlayerBase",
 											"sid": 432541200428271,
@@ -931,6 +961,24 @@
 												"on-time": "0.1",
 												"off-time": "0.1",
 												"duration": "0.5"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "E_SlowChaseBase",
+											"sid": 785853386752174,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 605474030522120,
+											"parameters": {
+												"instance-variable": "SkipPause",
+												"value": "false"
 											}
 										}
 									],
@@ -954,6 +1002,15 @@
 												"instance-variable": "ActTime",
 												"value": "1"
 											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_SlowChaseBase",
+											"sid": 176967986744709,
+											"parameters": {
+												"instance-variable": "SkipPause",
+												"value": "true"
+											}
 										}
 									],
 									"sid": 921203485276289
@@ -962,15 +1019,6 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "E_SlowChaseBase",
-											"sid": 328459142821232,
-											"parameters": {
-												"instance-variable": "SkipPause",
-												"value": "false"
-											}
-										},
 										{
 											"id": "set-boolean-instvar",
 											"objectClass": "E_SlowChaseBase",
@@ -1086,7 +1134,7 @@
 						},
 						{
 							"id": "set-animation-frame",
-							"objectClass": "SlowChaseMoveTile",
+							"objectClass": "E_SlowChaseMoveTile",
 							"sid": 702551115573505,
 							"parameters": {
 								"frame-number": "Functions.GetAngle45(\nE_SlowChaseBase.ImagePointX(\"center\"),\nE_SlowChaseBase.ImagePointY(\"center\"),\nE_SlowChaseBase.Pathfinding.NodeXAt(0),\nE_SlowChaseBase.Pathfinding.NodeYAt(0))/45"
@@ -1097,8 +1145,8 @@
 							"objectClass": "E_SlowChaseBase",
 							"sid": 461351890349885,
 							"parameters": {
-								"x": "SlowChaseMoveTile.ImagePointX(\"position\")",
-								"y": "SlowChaseMoveTile.ImagePointY(\"position\")"
+								"x": "E_SlowChaseMoveTile.ImagePointX(\"position\")",
+								"y": "E_SlowChaseMoveTile.ImagePointY(\"position\")"
 							}
 						},
 						{
@@ -1400,7 +1448,7 @@
 							"actions": [
 								{
 									"type": "comment",
-									"text": "Is in melee range to player"
+									"text": "Is in melee range to Player"
 								}
 							],
 							"sid": 854427076060675,
@@ -1519,15 +1567,6 @@
 											}
 										},
 										{
-											"id": "set-instvar-value",
-											"objectClass": "E_SeeChaseBase",
-											"sid": 402450464485771,
-											"parameters": {
-												"instance-variable": "ActTime",
-												"value": "0"
-											}
-										},
-										{
 											"id": "spawn-another-object",
 											"objectClass": "PlayerBase",
 											"sid": 949283655251958,
@@ -1546,6 +1585,24 @@
 												"on-time": "0.1",
 												"off-time": "0.1",
 												"duration": "0.5"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 186176505985139,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 995111458827218,
+											"parameters": {
+												"instance-variable": "SkipPause",
+												"value": "false"
 											}
 										}
 									],
@@ -1569,6 +1626,15 @@
 												"instance-variable": "ActTime",
 												"value": "1"
 											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_SeeChaseBase",
+											"sid": 248937017863822,
+											"parameters": {
+												"instance-variable": "SkipPause",
+												"value": "true"
+											}
 										}
 									],
 									"sid": 711467862952885
@@ -1577,15 +1643,6 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "E_SeeChaseBase",
-											"sid": 145511582713131,
-											"parameters": {
-												"instance-variable": "SkipPause",
-												"value": "false"
-											}
-										},
 										{
 											"id": "set-boolean-instvar",
 											"objectClass": "E_SeeChaseBase",
@@ -1747,7 +1804,7 @@
 									"actions": [
 										{
 											"type": "comment",
-											"text": "Does not see player, but is still chasing"
+											"text": "Does not see Player, but is still chasing"
 										}
 									],
 									"sid": 265462941610594,
@@ -1987,6 +2044,10 @@
 					]
 				},
 				{
+					"eventType": "comment",
+					"text": "Pathfinding"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -2003,7 +2064,7 @@
 						},
 						{
 							"id": "set-animation-frame",
-							"objectClass": "SeeChaseMoveTile",
+							"objectClass": "E_SeeChaseMoveTile",
 							"sid": 465015466600369,
 							"parameters": {
 								"frame-number": "Functions.GetAngle45(\nE_SeeChaseBase.ImagePointX(\"center\"),\nE_SeeChaseBase.ImagePointY(\"center\"),\nE_SeeChaseBase.Pathfinding.NodeXAt(0),\nE_SeeChaseBase.Pathfinding.NodeYAt(0))/45"
@@ -2014,8 +2075,8 @@
 							"objectClass": "E_SeeChaseBase",
 							"sid": 116538406465345,
 							"parameters": {
-								"x": "SeeChaseMoveTile.ImagePointX(\"position\")",
-								"y": "SeeChaseMoveTile.ImagePointY(\"position\")"
+								"x": "E_SeeChaseMoveTile.ImagePointX(\"position\")",
+								"y": "E_SeeChaseMoveTile.ImagePointY(\"position\")"
 							}
 						},
 						{
@@ -2345,6 +2406,1118 @@
 			"sid": 607163387206709
 		},
 		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Enemy_Ranged",
+			"description": "Enemy that moves towards player every other turn\nShoots at player from range if in sight instead\nHits in melee if in melee instead",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Execute turn"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "E_RangedBase",
+							"sid": 326562032476603,
+							"parameters": {
+								"instance-variable": "TurnOrder",
+								"comparison": 0,
+								"value": "Turn"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "E_RangedBase",
+							"sid": 651303639725608,
+							"parameters": {
+								"instance-variable": "TurnDone"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "E_RangedBase",
+							"sid": 439241470684349,
+							"parameters": {
+								"instance-variable": "TurnInProgress"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "rotate-clockwise",
+							"objectClass": "E_RangedMask",
+							"sid": 204593678331874,
+							"disabled": true,
+							"parameters": {
+								"degrees": "45"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_RangedBase",
+							"sid": 697130338202249,
+							"parameters": {
+								"instance-variable": "TurnInProgress",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 282746232617652,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 742516083510837,
+									"parameters": {
+										"first-value": "Functions.LOScheck(E_RangedBase.X, E_RangedBase.Y, PlayerBase.X, PlayerBase.Y)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Sees Player"
+								}
+							],
+							"sid": 744940453888231,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "E_RangedBase",
+											"sid": 354061631797293,
+											"parameters": {
+												"instance-variable": "SeesPlayer"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Sees player, starts readying attack"
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_RangedBase",
+											"sid": 162212537883582,
+											"parameters": {
+												"instance-variable": "SeesPlayer",
+												"value": "true"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "E_RangedMask",
+											"sid": 784312175383351,
+											"parameters": {
+												"object": "indicator",
+												"layer": "0",
+												"image-point": "\"indicator\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "E_RangedBase",
+											"sid": 607550626933759,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_RangedBase",
+											"sid": 570339874422352,
+											"parameters": {
+												"instance-variable": "SkipPause",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_RangedBase",
+											"sid": 210509309082286,
+											"parameters": {
+												"instance-variable": "TurnDone",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 129459732789140
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 427334270112358
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Does not see Player"
+								}
+							],
+							"sid": 739088292986761,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "E_RangedBase",
+											"sid": 792513059131954,
+											"parameters": {
+												"instance-variable": "SeesPlayer"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Loses sight of player, starts readying movement"
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_RangedBase",
+											"sid": 473714227378270,
+											"parameters": {
+												"instance-variable": "SeesPlayer",
+												"value": "false"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "E_RangedMask",
+											"sid": 903137657032776,
+											"parameters": {
+												"object": "indicator",
+												"layer": "0",
+												"image-point": "\"indicator\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "indicator",
+											"sid": 233011772533955,
+											"parameters": {
+												"animation": "\"question\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "E_RangedBase",
+											"sid": 789205252496081,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_RangedBase",
+											"sid": 934776018770568,
+											"parameters": {
+												"instance-variable": "SkipPause",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "E_RangedBase",
+											"sid": 498445595084862,
+											"parameters": {
+												"instance-variable": "TurnDone",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 347819531147076
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "E_RangedBase",
+									"sid": 674314886906141,
+									"parameters": {
+										"instance-variable": "TurnDone"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "If SeesPlayer state hasn't changed, do actions"
+								}
+							],
+							"sid": 950304586697619,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 322445461552646,
+											"parameters": {
+												"first-value": "Functions.PlayerDistance(E_RangedBase.X, E_RangedBase.Y)",
+												"comparison": 0,
+												"second-value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Is in melee range to Player"
+										}
+									],
+									"sid": 623084966825919,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "E_RangedBase",
+													"sid": 629641627958384,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"comparison": 5,
+														"value": "Self.ActThAttack"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "DamagePlayer",
+													"sid": 456898997162786,
+													"parameters": [
+														"E_RangedBase.meleeDmg"
+													]
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 878387973367437,
+													"parameters": {
+														"audio-file": "hit_test",
+														"loop": "not-looping",
+														"volume": "-5",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "PlayerBase",
+													"sid": 141946555467047,
+													"parameters": {
+														"object": "PfPing",
+														"layer": "0",
+														"image-point": "\"center\""
+													}
+												},
+												{
+													"id": "flash",
+													"objectClass": "PlayerMask",
+													"sid": 404598711199554,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.1",
+														"off-time": "0.1",
+														"duration": "0.5"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "E_RangedBase",
+													"sid": 221333092204612,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_RangedBase",
+													"sid": 163518581860434,
+													"parameters": {
+														"instance-variable": "SkipPause",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 797416962799597
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 261716792339393
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "E_RangedBase",
+													"sid": 965189117534273,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_RangedBase",
+													"sid": 160064321640298,
+													"parameters": {
+														"instance-variable": "SkipPause",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 155401124497103
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_RangedBase",
+													"sid": 970864109067781,
+													"parameters": {
+														"instance-variable": "TurnDone",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 619688396107216
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 552422343769725
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "E_RangedBase",
+											"sid": 809473067556902,
+											"parameters": {
+												"instance-variable": "SeesPlayer"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Is not in melee"
+										},
+										{
+											"type": "comment",
+											"text": "Sees Player"
+										}
+									],
+									"sid": 821410233132827,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "E_RangedBase",
+													"sid": 845690973950338,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"comparison": 5,
+														"value": "Self.ActThAttack"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "E_RangedBase",
+													"sid": 123699031893884,
+													"parameters": {
+														"object": "e_RangedProjectile",
+														"layer": "0",
+														"image-point": "\"center\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "e_RangedProjectile",
+													"sid": 395327316603857,
+													"parameters": {
+														"instance-variable": "rangedDmg",
+														"value": "E_RangedBase.rangedDmg"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "e_RangedProjectile",
+													"sid": 201103948814899,
+													"parameters": {
+														"instance-variable": "BaseUID",
+														"value": "E_RangedBase.UID"
+													}
+												},
+												{
+													"id": "set-angle",
+													"objectClass": "e_RangedProjectile",
+													"sid": 489097122650501,
+													"parameters": {
+														"angle": "angle(E_RangedBase.X, E_RangedBase.Y, PlayerBase.X, PlayerBase.Y)"
+													}
+												},
+												{
+													"callFunction": "DamagePlayer",
+													"sid": 660392508245537,
+													"disabled": true,
+													"parameters": [
+														"E_RangedBase.rangedDmg"
+													]
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 239034955007724,
+													"disabled": true,
+													"parameters": {
+														"audio-file": "hit_test",
+														"loop": "not-looping",
+														"volume": "-5",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "PlayerBase",
+													"sid": 242620703739115,
+													"disabled": true,
+													"parameters": {
+														"object": "PfPing",
+														"layer": "0",
+														"image-point": "\"center\""
+													}
+												},
+												{
+													"id": "flash",
+													"objectClass": "PlayerMask",
+													"sid": 884422067195021,
+													"disabled": true,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.1",
+														"off-time": "0.1",
+														"duration": "0.5"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "E_RangedBase",
+													"sid": 728480521562328,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_RangedBase",
+													"sid": 233147712307094,
+													"disabled": true,
+													"parameters": {
+														"instance-variable": "SkipPause",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 575137853580217
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 729346566516379
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "E_RangedBase",
+													"sid": 248415033984947,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_RangedBase",
+													"sid": 569639156394499,
+													"parameters": {
+														"instance-variable": "SkipPause",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_RangedBase",
+													"sid": 302237290433786,
+													"parameters": {
+														"instance-variable": "TurnDone",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 290298734471313
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 866402988401540
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 631093337459422
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Does not see Player"
+										}
+									],
+									"sid": 656120974965041,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "E_RangedBase",
+													"sid": 680423066812967,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"comparison": 5,
+														"value": "Self.ActThMove"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "find-path",
+													"objectClass": "E_RangedBase",
+													"sid": 477442470946590,
+													"behaviorType": "Pathfinding",
+													"parameters": {
+														"x": "PlayerBase.X",
+														"y": "PlayerBase.Y"
+													}
+												}
+											],
+											"sid": 309587413821302
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 513533764187558
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "E_RangedBase",
+													"sid": 825711444907874,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_RangedBase",
+													"sid": 396215049139158,
+													"parameters": {
+														"instance-variable": "SkipPause",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "E_RangedBase",
+													"sid": 637963189932347,
+													"parameters": {
+														"instance-variable": "TurnDone",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 152062952253563
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Projectile"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "e_RangedProjectile",
+							"sid": 385709193684006,
+							"parameters": {
+								"object": "PlayerBase"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "e_RangedProjectile",
+							"sid": 834554195235222
+						},
+						{
+							"callFunction": "DamagePlayer",
+							"sid": 296869043774494,
+							"parameters": [
+								"e_RangedProjectile.rangedDmg"
+							]
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 166852814370223,
+							"parameters": {
+								"audio-file": "hit_test",
+								"loop": "not-looping",
+								"volume": "-5",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "PlayerBase",
+							"sid": 616273572199705,
+							"parameters": {
+								"object": "PfPing",
+								"layer": "0",
+								"image-point": "\"center\""
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "PlayerMask",
+							"sid": 555961906682061,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "0.5"
+							}
+						}
+					],
+					"sid": 718941234265782,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "E_RangedBase",
+									"sid": 764750055578156,
+									"parameters": {
+										"unique-id": "e_RangedProjectile.BaseUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "E_RangedBase",
+									"sid": 247279239334388,
+									"parameters": {
+										"instance-variable": "ActTime",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "E_RangedBase",
+									"sid": 466037386098628,
+									"parameters": {
+										"instance-variable": "SkipPause",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "E_RangedBase",
+									"sid": 168625332453121,
+									"parameters": {
+										"instance-variable": "TurnDone",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 952178825319702
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Pathfinding"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-path-found",
+							"objectClass": "E_RangedBase",
+							"sid": 163829762086704,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Set EnemyMoveTile angle towards next pathfinding node"
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "E_RangedMoveTile",
+							"sid": 587921160173256,
+							"parameters": {
+								"frame-number": "Functions.GetAngle45(\nE_RangedBase.ImagePointX(\"center\"),\nE_RangedBase.ImagePointY(\"center\"),\nE_RangedBase.Pathfinding.NodeXAt(0),\nE_RangedBase.Pathfinding.NodeYAt(0))/45"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "E_RangedBase",
+							"sid": 119443564631062,
+							"parameters": {
+								"x": "E_RangedMoveTile.ImagePointX(\"position\")",
+								"y": "E_RangedMoveTile.ImagePointY(\"position\")"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "E_RangedBase",
+							"sid": 769637053822111,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_RangedBase",
+							"sid": 578594637397941,
+							"parameters": {
+								"instance-variable": "SkipPause",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_RangedBase",
+							"sid": 203562256898041,
+							"parameters": {
+								"instance-variable": "TurnDone",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 573809764095143
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-failed-to-find-path",
+							"objectClass": "E_RangedBase",
+							"sid": 761276459095010,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_RangedBase",
+							"sid": 100328736141432,
+							"parameters": {
+								"instance-variable": "SkipPause",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_RangedBase",
+							"sid": 359335047948526,
+							"parameters": {
+								"instance-variable": "TurnDone",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 571898678768647
+				},
+				{
+					"eventType": "comment",
+					"text": "Set animation"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "E_RangedBase",
+							"sid": 692902560960135,
+							"parameters": {
+								"instance-variable": "SeesPlayer"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "E_RangedMask",
+							"sid": 441640543056834,
+							"parameters": {
+								"animation": "\"seesplayer\"",
+								"from": "current-frame"
+							}
+						}
+					],
+					"sid": 310384659853802,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 515021267280315
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "E_RangedMask",
+							"sid": 704958408217025,
+							"parameters": {
+								"animation": "\"idle\"",
+								"from": "current-frame"
+							}
+						}
+					],
+					"sid": 790141313376936
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "E_RangedBase",
+							"sid": 102118719983983,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-speed",
+							"objectClass": "E_RangedMask",
+							"sid": 706247857274402,
+							"parameters": {
+								"speed": "2"
+							}
+						}
+					],
+					"sid": 910708295216612
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "E_RangedBase",
+							"sid": 260983531419497,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"comparison": 5,
+								"value": "Self.ActThMove"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-speed",
+							"objectClass": "E_RangedMask",
+							"sid": 436773601463874,
+							"parameters": {
+								"speed": "6"
+							}
+						}
+					],
+					"sid": 134123868278550,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "E_RangedBase",
+							"sid": 971431133452681,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"comparison": 5,
+								"value": "Self.ActThAttack"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 680106605800400,
+							"parameters": {
+								"object": "E_RangedBase"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 610380778788527,
+							"parameters": {
+								"first-value": "Functions.PlayerDistance(E_RangedBase.X, E_RangedBase.Y)",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-speed",
+							"objectClass": "E_RangedMask",
+							"sid": 212804299587822,
+							"parameters": {
+								"speed": "6"
+							}
+						}
+					],
+					"sid": 252816894893871,
+					"disabled": true
+				},
+				{
+					"eventType": "comment",
+					"text": "Highlight when about to be attacked"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "E_RangedBase",
+							"sid": 461993982167925,
+							"parameters": {
+								"object": "MoveTile"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "E_RangedMask",
+							"sid": 926730519331502,
+							"parameters": {
+								"color": "rgb(255, 50, 50)"
+							}
+						}
+					],
+					"sid": 588312284375454,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 398823901531940
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "E_RangedMask",
+							"sid": 807815506066375,
+							"parameters": {
+								"color": "rgb(255, 100, 255)"
+							}
+						}
+					],
+					"sid": 718328564040795
+				}
+			],
+			"sid": 424120616738304
+		},
+		{
 			"eventType": "comment",
 			"text": "Set mask locations to bases"
 		},
@@ -2378,7 +3551,7 @@
 				},
 				{
 					"id": "set-position",
-					"objectClass": "SlowChaseMoveTile",
+					"objectClass": "E_SlowChaseMoveTile",
 					"sid": 545857263838837,
 					"parameters": {
 						"x": "E_SlowChaseBase.X",
@@ -2396,11 +3569,29 @@
 				},
 				{
 					"id": "set-position",
-					"objectClass": "SeeChaseMoveTile",
+					"objectClass": "E_SeeChaseMoveTile",
 					"sid": 477339552995746,
 					"parameters": {
 						"x": "E_SeeChaseBase.X",
 						"y": "E_SeeChaseBase.Y"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "E_RangedMask",
+					"sid": 195182337289507,
+					"parameters": {
+						"x": "E_RangedBase.ImagePointX(\"center\")",
+						"y": "E_RangedBase.ImagePointY(\"center\")"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "E_RangedMoveTile",
+					"sid": 678659145840362,
+					"parameters": {
+						"x": "E_RangedBase.X",
+						"y": "E_RangedBase.Y"
 					}
 				}
 			],
@@ -2456,6 +3647,7 @@
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 894433293365648,
+							"breakpoint": true,
 							"parameters": {
 								"variable": "Turn",
 								"value": "0"
@@ -2559,75 +3751,119 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "EnemyBases",
-							"sid": 902231177316161,
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 253731173266185,
 							"parameters": {
-								"instance-variable": "TurnOrder",
+								"first-value": "Turn % 1",
 								"comparison": 0,
-								"value": "Turn"
+								"second-value": "0"
 							}
 						}
 					],
 					"actions": [],
-					"sid": 305438987590613
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 959416610788902
-						}
-					],
-					"actions": [],
-					"sid": 809155038371974,
+					"sid": 996748702641028,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "EnemyBases",
+									"sid": 504391950827700,
+									"parameters": {
+										"instance-variable": "TurnOrder",
+										"comparison": 0,
+										"value": "Turn"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 101053583907708
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 504688325069018
+								}
+							],
+							"actions": [],
+							"sid": 994898449846203,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 575078174713100,
+											"parameters": {
+												"variable": "Turn",
+												"comparison": 1,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 474782236816304,
+											"parameters": {
+												"variable": "Turn",
+												"value": "1"
+											}
+										},
+										{
+											"id": "append-text",
+											"objectClass": "TXTerrors",
+											"sid": 278347328174110,
+											"parameters": {
+												"text": "\" nt\""
+											}
+										}
+									],
+									"sid": 869998253533202
+								}
+							]
+						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 940534777829514,
+									"sid": 803510561413966,
 									"parameters": {
 										"variable": "Turn",
-										"comparison": 1,
-										"value": "0"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 594169090335672,
-									"parameters": {
-										"first-value": "Turn % 1",
-										"comparison": 0,
-										"second-value": "0"
+										"comparison": 4,
+										"value": "EnemiesActive"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "add-to-eventvar",
+									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 962696732602901,
+									"sid": 708383016888572,
 									"parameters": {
 										"variable": "Turn",
-										"value": "1"
+										"value": "0"
 									}
 								},
 								{
 									"id": "append-text",
 									"objectClass": "TXTerrors",
-									"sid": 134605730435660,
+									"sid": 278514934274129,
 									"parameters": {
-										"text": "\" nt\""
+										"text": "\" fe\""
 									}
 								}
 							],
-							"sid": 950984853113048
+							"sid": 973348009596281
 						}
 					]
 				},
@@ -2637,14 +3873,14 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "EnemyBases",
-							"sid": 711921774591772,
+							"sid": 340489799811869,
 							"parameters": {
 								"instance-variable": "LastInTurn"
 							}
 						}
 					],
 					"actions": [],
-					"sid": 143465207465622,
+					"sid": 862379290363000,
 					"children": [
 						{
 							"eventType": "block",
@@ -2652,7 +3888,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "EnemyBases",
-									"sid": 437243063451940,
+									"sid": 822216637316597,
 									"parameters": {
 										"instance-variable": "TurnOrder",
 										"comparison": 2,
@@ -2664,7 +3900,7 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 134837669416036,
+									"sid": 708734846850247,
 									"parameters": {
 										"variable": "Turn",
 										"value": "0"
@@ -2673,50 +3909,15 @@
 								{
 									"id": "append-text",
 									"objectClass": "TXTerrors",
-									"sid": 223505090964082,
+									"sid": 530049051797136,
 									"parameters": {
 										"text": "\" ot\""
 									}
 								}
 							],
-							"sid": 110809410231143
+							"sid": 193879242894974
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 150975597867234,
-							"parameters": {
-								"variable": "Turn",
-								"comparison": 4,
-								"value": "EnemiesActive"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 229804166747990,
-							"parameters": {
-								"variable": "Turn",
-								"value": "0"
-							}
-						},
-						{
-							"id": "append-text",
-							"objectClass": "TXTerrors",
-							"sid": 693345505459798,
-							"parameters": {
-								"text": "\" fe\""
-							}
-						}
-					],
-					"sid": 343259658425569
 				}
 			],
 			"sid": 784866365682747

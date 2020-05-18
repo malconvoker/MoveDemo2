@@ -858,7 +858,7 @@
 					}
 				},
 				{
-					"type": "SlowChaseMoveTile",
+					"type": "E_SlowChaseMoveTile",
 					"properties": {
 						"initially-visible": false,
 						"initial-animation": "Animation 1",

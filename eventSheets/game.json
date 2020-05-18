@@ -769,6 +769,11 @@
 					"id": "move-to-top",
 					"objectClass": "indicator",
 					"sid": 976212855918530
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "e_RangedProjectile",
+					"sid": 747608823904358
 				}
 			],
 			"sid": 156823323105485
@@ -836,7 +841,8 @@
 					}
 				}
 			],
-			"sid": 675038742235250
+			"sid": 675038742235250,
+			"disabled": true
 		},
 		{
 			"eventType": "block",

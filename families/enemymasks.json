@@ -14,6 +14,7 @@
 	"members": [
 		"E_UpDownMask",
 		"E_SlowChaseMask",
-		"E_SeeChaseMask"
+		"E_SeeChaseMask",
+		"E_RangedMask"
 	]
 }

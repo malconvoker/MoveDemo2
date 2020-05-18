@@ -93,6 +93,7 @@
 	"members": [
 		"E_UpDownBase",
 		"E_SlowChaseBase",
-		"E_SeeChaseBase"
+		"E_SeeChaseBase",
+		"E_RangedBase"
 	]
 }

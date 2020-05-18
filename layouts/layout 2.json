@@ -176,8 +176,8 @@
 						"MoveY": 0,
 						"MoveAngle": 0,
 						"meleeDmg": 1,
-						"maxhp": 5,
-						"hp": 5,
+						"maxhp": 15,
+						"hp": 15,
 						"TurnInProgress": true
 					},
 					"behaviors": {
@@ -658,7 +658,7 @@
 						"TurnInProgress": false,
 						"maxhp": 2,
 						"hp": 2,
-						"meleeDmg": 1,
+						"meleeDmg": 3,
 						"SkipPause": false,
 						"SeesPlayer": false,
 						"Active": false
@@ -716,7 +716,7 @@
 						"TurnInProgress": false,
 						"maxhp": 2,
 						"hp": 2,
-						"meleeDmg": 1,
+						"meleeDmg": 3,
 						"SkipPause": false,
 						"SeesPlayer": false,
 						"Active": false
@@ -774,7 +774,7 @@
 						"TurnInProgress": false,
 						"maxhp": 2,
 						"hp": 2,
-						"meleeDmg": 1,
+						"meleeDmg": 3,
 						"SkipPause": false,
 						"SeesPlayer": false,
 						"Active": false
@@ -813,7 +813,7 @@
 					}
 				},
 				{
-					"type": "SlowChaseMoveTile",
+					"type": "E_SlowChaseMoveTile",
 					"properties": {
 						"initially-visible": false,
 						"initial-animation": "Animation 1",
@@ -970,7 +970,7 @@
 					}
 				},
 				{
-					"type": "SeeChaseMoveTile",
+					"type": "E_SeeChaseMoveTile",
 					"properties": {
 						"initially-visible": false,
 						"initial-animation": "Animation 1",
@@ -1018,7 +1018,7 @@
 						"TurnInProgress": false,
 						"maxhp": 2,
 						"hp": 2,
-						"meleeDmg": 1,
+						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,
 						"Active": false,
@@ -1078,7 +1078,7 @@
 						"TurnInProgress": false,
 						"maxhp": 2,
 						"hp": 2,
-						"meleeDmg": 1,
+						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,
 						"Active": false,
@@ -1188,6 +1188,171 @@
 						"height": 20,
 						"originX": 0,
 						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "E_RangedBase",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 76,
+					"instanceVariables": {
+						"TurnOrder": 1,
+						"LastInTurn": false,
+						"ActTime": -1,
+						"ActThMove": 1,
+						"ActThAttack": 1,
+						"TurnDone": false,
+						"TurnInProgress": false,
+						"maxhp": 2,
+						"hp": 2,
+						"meleeDmg": 1,
+						"SkipPause": false,
+						"SeesPlayer": false,
+						"Active": false,
+						"rangedDmg": 2
+					},
+					"behaviors": {
+						"Pathfinding": {
+							"properties": {
+								"cell-size": 20,
+								"cell-border": -1,
+								"obstacles": "custom",
+								"max-speed": 200,
+								"acceleration": 1000,
+								"deceleration": 2000,
+								"rotate-speed": 135,
+								"rotate-object": false,
+								"diagonals": true,
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 20,
+						"y": 80,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "E_RangedMask",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "idle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 77,
+					"instanceVariables": {},
+					"behaviors": {
+						"Flash": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 200,
+						"y": -100,
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"color": [
+							1,
+							0.39215686274509803,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "E_RangedMoveTile",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 78,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 200,
+						"y": -120,
+						"width": 20,
+						"height": 20,
+						"originX": -1,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "e_RangedProjectile",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 79,
+					"instanceVariables": {
+						"rangedDmg": 1,
+						"BaseUID": 0
+					},
+					"behaviors": {
+						"Bullet": {
+							"properties": {
+								"speed": 300,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": false,
+								"set-angle": true,
+								"step": true,
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 280,
+						"y": -60,
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,

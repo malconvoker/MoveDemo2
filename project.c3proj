@@ -64,6 +64,14 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Bullet",
+			"name": "Bullet",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Pathfinding",
 			"name": "Pathfinding",
 			"author": "Scirra",
@@ -99,7 +107,9 @@
 			"TiledBackground",
 			"Keyboard",
 			"LOS",
-			"Audio"
+			"Audio",
+			"Tilemap",
+			"Tilemap2"
 		],
 		"subfolders": [
 			{
@@ -108,11 +118,15 @@
 					"E_SlowChaseMask",
 					"E_UpDownBase",
 					"E_UpDownMask",
-					"SlowChaseMoveTile",
+					"E_SlowChaseMoveTile",
 					"E_SeeChaseBase",
 					"E_SeeChaseMask",
-					"SeeChaseMoveTile",
-					"indicator"
+					"E_SeeChaseMoveTile",
+					"indicator",
+					"E_RangedBase",
+					"E_RangedMoveTile",
+					"E_RangedMask",
+					"e_RangedProjectile"
 				],
 				"subfolders": [],
 				"name": "Enemies"
@@ -164,7 +178,7 @@
 			"members": [
 				"E_SlowChaseBase",
 				"E_SlowChaseMask",
-				"SlowChaseMoveTile"
+				"E_SlowChaseMoveTile"
 			],
 			"selectMode": "normal"
 		},
@@ -172,7 +186,15 @@
 			"members": [
 				"E_SeeChaseBase",
 				"E_SeeChaseMask",
-				"SeeChaseMoveTile"
+				"E_SeeChaseMoveTile"
+			],
+			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"E_RangedBase",
+				"E_RangedMask",
+				"E_RangedMoveTile"
 			],
 			"selectMode": "normal"
 		}
@@ -291,7 +313,7 @@
 	},
 	"properties": {
 		"description": "Team Iron Move Demo",
-		"version": "0.4.1",
+		"version": "0.5.0",
 		"author": "Malconvoker",
 		"authorEmail": "",
 		"authorWebsite": "",

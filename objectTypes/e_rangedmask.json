@@ -1,0 +1,112 @@
+{
+	"name": "E_RangedMask",
+	"plugin-id": "Sprite",
+	"sid": 893172474027643,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3703698,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "indicator",
+								"x": 0.5,
+								"y": 0.045454545454545456
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6165446,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "indicator",
+								"x": 0.5,
+								"y": 0.045454545454545456
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 401260949109931,
+				"name": "idle",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 2
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1503752,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "indicator",
+								"x": 0.5,
+								"y": 0.045454545454545456
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 16,
+						"height": 22,
+						"originX": 0.5,
+						"originY": 0.7272727272727273,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5542407,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "indicator",
+								"x": 0.5,
+								"y": 0.045454545454545456
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 171025517122035,
+				"name": "seesplayer",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 6
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -23,6 +23,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "TurnsTaken",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Number of whole Turn cycles that have passed",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 245613322365246
+		},
+		{
+			"eventType": "variable",
 			"name": "GameSpeed",
 			"type": "number",
 			"initialValue": "0.1",

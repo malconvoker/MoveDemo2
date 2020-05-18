@@ -716,9 +716,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "TXTturn",
-							"sid": 565873041671567,
+							"sid": 425829887314051,
 							"parameters": {
-								"text": "\"Enemies: \" & EnemiesActive & newline & \"Turn \" & Turn"
+								"text": "\"Enemies: \" & EnemiesActive & newline & \"Turn \" & TurnsTaken & \" (\" & Turn & \")\""
 							}
 						},
 						{
