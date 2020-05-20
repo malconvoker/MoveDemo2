@@ -1,20 +1,20 @@
 {
-	"name": "Collisions",
+	"name": "TMdungeonSmall",
 	"plugin-id": "Tilemap",
-	"sid": 195154659930062,
+	"sid": 251918123263126,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"image": {
-		"width": 20,
-		"height": 20,
-		"originX": 4.4,
-		"originY": 2.8,
-		"originalSource": "",
+		"width": 160,
+		"height": 180,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "C:\\Users\\mctur\\Downloads\\dungeon_tileset_all.png",
 		"exportFormat": "png",
 		"exportQuality": 0.8,
-		"imageSpriteId": 5683013,
+		"imageSpriteId": 3054633,
 		"useCollisionPoly": true
 	},
 	"tile-collision-polys": {}

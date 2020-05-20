@@ -75,9 +75,17 @@
 				{
 					"id": "set-text",
 					"objectClass": "TXThp",
-					"sid": 346023567101003,
+					"sid": 551022387329931,
 					"parameters": {
-						"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp & \"hp\""
+						"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp & \"hp, \" & PlayerBase.mp & \"/\" & PlayerBase.maxmp & \"mp\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "TXTtouchmode",
+					"sid": 242244116104003,
+					"parameters": {
+						"text": "\"Touch: \" & TouchMode"
 					}
 				}
 			],
@@ -955,6 +963,14 @@
 					"id": "set-visible",
 					"objectClass": "TXTenemydata",
 					"sid": 539020564058140,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "TXTtouchmode",
+					"sid": 831086868228561,
 					"parameters": {
 						"visibility": "toggle"
 					}

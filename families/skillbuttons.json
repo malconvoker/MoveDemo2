@@ -1,0 +1,38 @@
+{
+	"name": "SkillButtons",
+	"plugin-id": "Sprite",
+	"sid": 770633167814287,
+	"instanceVariables": [
+		{
+			"name": "Touched",
+			"type": "boolean",
+			"desc": "Is in touch",
+			"sid": 334279680793482
+		},
+		{
+			"name": "Active",
+			"type": "boolean",
+			"desc": "Is currently selected",
+			"sid": 730357528710868
+		},
+		{
+			"name": "CurrentSkill",
+			"type": "string",
+			"desc": "Current skill in slot",
+			"sid": 957443611502513
+		},
+		{
+			"name": "SkillSlot",
+			"type": "number",
+			"desc": "Skill slot the button corresponds to",
+			"sid": 439502798111250
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"UI_SkillButton1",
+		"UI_SkillButton2",
+		"UI_SkillButton3"
+	]
+}

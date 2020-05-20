@@ -167,7 +167,6 @@
 					"id": "set-boolean-instvar",
 					"objectClass": "PlayerBase",
 					"sid": 974800576428490,
-					"breakpoint": true,
 					"parameters": {
 						"instance-variable": "TurnInProgress",
 						"value": "false"
@@ -3647,7 +3646,6 @@
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 894433293365648,
-							"breakpoint": true,
 							"parameters": {
 								"variable": "Turn",
 								"value": "0"

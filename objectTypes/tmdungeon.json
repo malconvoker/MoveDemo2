@@ -7,14 +7,14 @@
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"image": {
-		"width": 120,
-		"height": 100,
+		"width": 160,
+		"height": 180,
 		"originX": 0.5,
 		"originY": 0.5,
-		"originalSource": "C:\\Users\\mctur\\Downloads\\dungeon_tileset1.png",
+		"originalSource": "C:\\Users\\mctur\\Downloads\\dungeon_tileset_all.png",
 		"exportFormat": "png",
 		"exportQuality": 0.8,
-		"imageSpriteId": 1114103,
+		"imageSpriteId": 3184506,
 		"useCollisionPoly": true
 	},
 	"tile-collision-polys": {}

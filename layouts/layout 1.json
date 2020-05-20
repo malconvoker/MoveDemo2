@@ -147,6 +147,8 @@
 						"meleeDmg": 1,
 						"maxhp": 5,
 						"hp": 5,
+						"maxmp": 3,
+						"mp": 3,
 						"TurnInProgress": true
 					},
 					"behaviors": {
@@ -543,7 +545,9 @@
 					},
 					"uid": 5,
 					"instanceVariables": {
-						"OldPos": 0
+						"OldPos": 0,
+						"HasLOS": false,
+						"OnEnemy": false
 					},
 					"behaviors": {},
 					"world": {

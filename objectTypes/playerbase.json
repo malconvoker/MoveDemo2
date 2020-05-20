@@ -41,6 +41,18 @@
 			"sid": 746376378517428
 		},
 		{
+			"name": "maxmp",
+			"type": "number",
+			"desc": "",
+			"sid": 751603520566529
+		},
+		{
+			"name": "mp",
+			"type": "number",
+			"desc": "",
+			"sid": 186657457512671
+		},
+		{
 			"name": "TurnInProgress",
 			"type": "boolean",
 			"desc": "Is the player turn in progress (used in addition to Turn == 1)",

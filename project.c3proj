@@ -109,7 +109,11 @@
 			"LOS",
 			"Audio",
 			"Tilemap",
-			"Tilemap2"
+			"Tilemap2",
+			"UI_SkillButton1",
+			"TMdungeonSmall",
+			"UI_SkillButton2",
+			"UI_SkillButton3"
 		],
 		"subfolders": [
 			{
@@ -136,7 +140,8 @@
 					"PlayerBase",
 					"PlayerMask",
 					"MoveTile",
-					"CursorTest"
+					"CursorTest",
+					"e_Fireball"
 				],
 				"subfolders": [],
 				"name": "Player"
@@ -150,7 +155,8 @@
 					"TXTmovetiledata",
 					"TXTturn",
 					"TXThp",
-					"TXTerrors"
+					"TXTerrors",
+					"TXTtouchmode"
 				],
 				"subfolders": [],
 				"name": "DebugText"
@@ -203,7 +209,8 @@
 		"items": [
 			"EnemyBases",
 			"EnemyMasks",
-			"Z_Sorting"
+			"Z_Sorting",
+			"SkillButtons"
 		],
 		"subfolders": []
 	},
@@ -221,7 +228,8 @@
 			"Global",
 			"Functions",
 			"Enemies",
-			"Player"
+			"Player",
+			"Skills"
 		],
 		"subfolders": []
 	},
@@ -313,7 +321,7 @@
 	},
 	"properties": {
 		"description": "Team Iron Move Demo",
-		"version": "0.5.0",
+		"version": "0.6.0",
 		"author": "Malconvoker",
 		"authorEmail": "",
 		"authorWebsite": "",

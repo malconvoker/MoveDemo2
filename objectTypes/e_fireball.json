@@ -1,27 +1,21 @@
 {
-	"name": "e_RangedProjectile",
+	"name": "e_Fireball",
 	"plugin-id": "Sprite",
-	"sid": 233915957892020,
+	"sid": 563779365407434,
 	"isGlobal": false,
 	"instanceVariables": [
 		{
 			"name": "rangedDmg",
 			"type": "number",
 			"desc": "Damage the projectile deals",
-			"sid": 988702878174984
-		},
-		{
-			"name": "BaseUID",
-			"type": "number",
-			"desc": "UID of RangedBase",
-			"sid": 797331830798546
+			"sid": 114758900264692
 		}
 	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "Bullet",
 			"name": "Bullet",
-			"sid": 391193416370162
+			"sid": 877222797611129
 		}
 	],
 	"effectTypes": [],
@@ -37,7 +31,7 @@
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 8308498,
+						"imageSpriteId": 9776770,
 						"collisionPoly": {
 							"points": [
 								0.35,
@@ -61,7 +55,7 @@
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 6154108,
+						"imageSpriteId": 594534,
 						"collisionPoly": {
 							"points": [
 								0.35,
@@ -85,7 +79,7 @@
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 453461,
+						"imageSpriteId": 6456091,
 						"collisionPoly": {
 							"points": [
 								0.35,
@@ -109,7 +103,7 @@
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 997535,
+						"imageSpriteId": 7721856,
 						"collisionPoly": {
 							"points": [
 								0.35,
@@ -126,7 +120,7 @@
 						"duration": 1
 					}
 				],
-				"sid": 527357460558852,
+				"sid": 462007869275003,
 				"name": "Animation 1",
 				"isLooping": true,
 				"isPingPong": false,

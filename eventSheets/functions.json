@@ -516,6 +516,158 @@
 			"sid": 227735025903153
 		},
 		{
+			"functionName": "LOStoCursorCheck",
+			"functionDescription": "Checks Player LOS to cursor without returning value",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "Checks Player LOS to cursor without returning a value"
+				}
+			],
+			"sid": 832619937686259,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 648587388243772,
+							"parameters": {
+								"first-value": "Functions.LOScheck(PlayerBase.X, PlayerBase.Y, CursorTest.X, CursorTest.Y)",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CursorTest",
+							"sid": 512526797071012,
+							"parameters": {
+								"instance-variable": "HasLOS",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 999440911082298
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 361395985831951
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CursorTest",
+							"sid": 404319661372116,
+							"parameters": {
+								"instance-variable": "HasLOS",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 481109472449803
+				}
+			]
+		},
+		{
+			"functionName": "LOStoCursor",
+			"functionDescription": "Does the Player have LOS to Cursor, 1=true",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "Does the Player have LOS to Cursor, 1=true"
+				}
+			],
+			"sid": 592523045952384,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 860028608529169,
+							"parameters": {
+								"first-value": "Functions.LOScheck(PlayerBase.X, PlayerBase.Y, CursorTest.X, CursorTest.Y)",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CursorTest",
+							"sid": 551308457290217,
+							"parameters": {
+								"instance-variable": "HasLOS",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 256140898814664,
+							"parameters": {
+								"value": "1"
+							}
+						}
+					],
+					"sid": 544236826182071
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 187303691733434
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "CursorTest",
+							"sid": 993258356623979,
+							"parameters": {
+								"instance-variable": "HasLOS",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 257723790296522,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 413296821094992
+				}
+			]
+		},
+		{
 			"eventType": "comment",
 			"text": "Other Functions"
 		},
@@ -584,6 +736,16 @@
 			"sid": 330982617689977,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "offset",
+					"type": "number",
+					"initialValue": "5",
+					"comment": "Amount of pixels to offset from tile borders when checking LOS",
+					"isStatic": false,
+					"isConstant": true,
+					"sid": 601397240004209
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -602,53 +764,53 @@
 						{
 							"id": "has-los-between-positions",
 							"objectClass": "LOS",
-							"sid": 505989066141757,
+							"sid": 444190140974422,
 							"behaviorType": "LineOfSight",
 							"parameters": {
 								"from-x": "StartX",
 								"from-y": "StartY",
 								"from-angle": "0",
-								"to-x": "DestX+1",
-								"to-y": "DestY+1"
+								"to-x": "DestX+offset",
+								"to-y": "DestY+offset"
 							}
 						},
 						{
 							"id": "has-los-between-positions",
 							"objectClass": "LOS",
-							"sid": 194192338081829,
+							"sid": 639202357921866,
 							"behaviorType": "LineOfSight",
 							"parameters": {
 								"from-x": "StartX",
 								"from-y": "StartY",
 								"from-angle": "0",
-								"to-x": "DestX+Tile-1",
-								"to-y": "DestY+1"
+								"to-x": "DestX+Tile-offset",
+								"to-y": "DestY+offset"
 							}
 						},
 						{
 							"id": "has-los-between-positions",
 							"objectClass": "LOS",
-							"sid": 558996770131714,
+							"sid": 140671555024885,
 							"behaviorType": "LineOfSight",
 							"parameters": {
 								"from-x": "StartX",
 								"from-y": "StartY",
 								"from-angle": "0",
-								"to-x": "DestX+1",
-								"to-y": "DestY+Tile-1"
+								"to-x": "DestX+offset",
+								"to-y": "DestY+Tile-offset"
 							}
 						},
 						{
 							"id": "has-los-between-positions",
 							"objectClass": "LOS",
-							"sid": 518681974950762,
+							"sid": 315015724194964,
 							"behaviorType": "LineOfSight",
 							"parameters": {
 								"from-x": "StartX",
 								"from-y": "StartY",
 								"from-angle": "0",
-								"to-x": "DestX+Tile-1",
-								"to-y": "DestY+Tile-1"
+								"to-x": "DestX+Tile-offset",
+								"to-y": "DestY+Tile-offset"
 							}
 						}
 					],
@@ -659,7 +821,7 @@
 						},
 						{
 							"type": "comment",
-							"text": "Corners are offset by 1 pixel in each direction towards the center of the tile"
+							"text": "Corners are offset by (offset) pixels in each direction towards the center of the tile"
 						},
 						{
 							"id": "set-function-return-value",

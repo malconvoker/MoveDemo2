@@ -8,7 +8,19 @@
 			"name": "OldPos",
 			"type": "number",
 			"desc": "Position from X*100+Y",
-			"sid": 926511990938827
+			"sid": 619623427768554
+		},
+		{
+			"name": "HasLOS",
+			"type": "boolean",
+			"desc": "Does the player have LOS to Cursor",
+			"sid": 976344691804623
+		},
+		{
+			"name": "OnEnemy",
+			"type": "boolean",
+			"desc": "Is overlapping enemy",
+			"sid": 667243721555553
 		}
 	],
 	"behaviorTypes": [],

@@ -46,10 +46,20 @@
 			"name": "TouchMode",
 			"type": "string",
 			"initialValue": "default",
-			"comment": "Current mode of touch: default",
+			"comment": "Current mode of touch: default, skilltarget",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 121488578550355
+		},
+		{
+			"eventType": "variable",
+			"name": "GameAreaWidth",
+			"type": "number",
+			"initialValue": "340",
+			"comment": "Width of the game area (screen-UI) in pixels",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 340660104020718
 		},
 		{
 			"eventType": "variable",

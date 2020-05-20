@@ -1,0 +1,232 @@
+{
+	"name": "Skills",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 853338872350101
+				}
+			],
+			"actions": [
+				{
+					"id": "map-function-default",
+					"objectClass": "Functions",
+					"sid": 154604082820351,
+					"parameters": {
+						"name": "\"skill\"",
+						"function": "SkillMissing"
+					}
+				},
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 381657107750886,
+					"parameters": {
+						"name": "\"skill\"",
+						"string": "\"fireball\"",
+						"function": "FireballSelect"
+					}
+				},
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 383797510325347,
+					"parameters": {
+						"name": "\"skill\"",
+						"string": "\"shield\"",
+						"function": "Shield"
+					}
+				}
+			],
+			"sid": 813242609112864
+		},
+		{
+			"functionName": "FireballSelect",
+			"functionDescription": "Ranged attack, changes cursor mode to target",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 794861518515238,
+					"parameters": {
+						"variable": "TouchMode",
+						"value": "\"skilltarget\""
+					}
+				}
+			],
+			"sid": 192838260417430
+		},
+		{
+			"functionName": "FireballUse",
+			"functionDescription": "Ranged attack, shoots the fireball",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 128950555311399,
+					"parameters": {
+						"variable": "TouchMode",
+						"value": "\"default\""
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "SkillButtons",
+					"sid": 949360237647581,
+					"parameters": {
+						"instance-variable": "Active",
+						"value": "false"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "PlayerBase",
+					"sid": 143092883825311,
+					"parameters": {
+						"object": "e_Fireball",
+						"layer": "0",
+						"image-point": "\"center\""
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "e_Fireball",
+					"sid": 102690576756896,
+					"parameters": {
+						"angle": "angle(PlayerBase.X, PlayerBase.Y, CursorTest.X, CursorTest.Y)"
+					}
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "PlayerBase",
+					"sid": 730053784758960,
+					"parameters": {
+						"instance-variable": "mp",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 755623138228108
+		},
+		{
+			"functionName": "Shield",
+			"functionDescription": "Activates Shield, provides temp hp that decay 1/turn",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 427378830381419
+		},
+		{
+			"functionName": "SkillMissing",
+			"functionDescription": "Default mapped skill, for error checking",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 701572271772531
+		},
+		{
+			"functionName": "ChangeSkill",
+			"functionDescription": "Changes current skill",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Slot",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Slot to put skill into, 0-2",
+					"sid": 182936803168275
+				},
+				{
+					"name": "newSkill",
+					"type": "string",
+					"initialValue": "",
+					"comment": "Code name for new skill to swap to",
+					"sid": 829445380719001
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 930694672473764
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "e_RangedProjectile",
+					"sid": 205023271764410,
+					"disabled": true,
+					"parameters": {
+						"object": "EnemyBases"
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "EnemyBases",
+					"sid": 698600578668127,
+					"parameters": {
+						"object": "e_Fireball"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "e_Fireball",
+					"sid": 659591016104217
+				},
+				{
+					"callFunction": "DamageEnemy",
+					"sid": 236175758771558,
+					"parameters": [
+						"e_Fireball.rangedDmg",
+						"EnemyBases.UID"
+					]
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 701915278226648,
+					"parameters": {
+						"audio-file": "hit_test",
+						"loop": "not-looping",
+						"volume": "-5",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"callFunction": "NextTurn",
+					"sid": 780033862679740
+				}
+			],
+			"sid": 608634710400462
+		}
+	],
+	"sid": 981738453536028
+}
