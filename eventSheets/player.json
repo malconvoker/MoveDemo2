@@ -105,7 +105,7 @@
 											"actions": [
 												{
 													"id": "set-position",
-													"objectClass": "CursorTest",
+													"objectClass": "CursorT",
 													"sid": 114659430412659,
 													"parameters": {
 														"x": "floor(Touch.X/Tile)*Tile",
@@ -114,7 +114,7 @@
 												},
 												{
 													"id": "set-instvar-value",
-													"objectClass": "CursorTest",
+													"objectClass": "CursorT",
 													"sid": 761716967942518,
 													"parameters": {
 														"instance-variable": "OldPos",
@@ -159,8 +159,8 @@
 															"sid": 691295065081014,
 															"disabled": true,
 															"parameters": {
-																"tile-x": "CursorTest.X/Tile",
-																"tile-y": "CursorTest.Y/Tile",
+																"tile-x": "CursorT.X/Tile",
+																"tile-y": "CursorT.Y/Tile",
 																"comparison": 1,
 																"tile": "0"
 															}
@@ -174,8 +174,8 @@
 															"disabled": true,
 															"behaviorType": "Pathfinding",
 															"parameters": {
-																"x": "CursorTest.X",
-																"y": "CursorTest.Y"
+																"x": "CursorT.X",
+																"y": "CursorT.Y"
 															}
 														}
 													],
@@ -246,7 +246,7 @@
 												},
 												{
 													"id": "set-boolean-instvar",
-													"objectClass": "CursorTest",
+													"objectClass": "CursorT",
 													"sid": 653618668199506,
 													"parameters": {
 														"instance-variable": "OnEnemy",
@@ -277,7 +277,7 @@
 													"actions": [
 														{
 															"id": "set-position",
-															"objectClass": "CursorTest",
+															"objectClass": "CursorT",
 															"sid": 950901283363261,
 															"parameters": {
 																"x": "floor(Touch.X/Tile)*Tile",
@@ -296,7 +296,7 @@
 															"conditions": [
 																{
 																	"id": "compare-instance-variable",
-																	"objectClass": "CursorTest",
+																	"objectClass": "CursorT",
 																	"sid": 495120362843322,
 																	"parameters": {
 																		"instance-variable": "OldPos",
@@ -313,7 +313,7 @@
 																},
 																{
 																	"id": "set-instvar-value",
-																	"objectClass": "CursorTest",
+																	"objectClass": "CursorT",
 																	"sid": 791660634888704,
 																	"parameters": {
 																		"instance-variable": "OldPos",
@@ -328,7 +328,7 @@
 															"conditions": [
 																{
 																	"id": "is-overlapping-another-object",
-																	"objectClass": "CursorTest",
+																	"objectClass": "CursorT",
 																	"sid": 292971811200669,
 																	"parameters": {
 																		"object": "EnemyBases"
@@ -338,7 +338,7 @@
 															"actions": [
 																{
 																	"id": "set-boolean-instvar",
-																	"objectClass": "CursorTest",
+																	"objectClass": "CursorT",
 																	"sid": 428989581014067,
 																	"parameters": {
 																		"instance-variable": "OnEnemy",
@@ -410,7 +410,7 @@
 													"actions": [
 														{
 															"id": "set-position",
-															"objectClass": "CursorTest",
+															"objectClass": "CursorT",
 															"sid": 178092207860809,
 															"parameters": {
 																"x": "-100",
@@ -479,7 +479,7 @@
 												},
 												{
 													"id": "set-boolean-instvar",
-													"objectClass": "CursorTest",
+													"objectClass": "CursorT",
 													"sid": 487649499257208,
 													"parameters": {
 														"instance-variable": "OnEnemy",
@@ -534,8 +534,8 @@
 															"objectClass": "PlayerBase",
 															"sid": 451072516699240,
 															"parameters": {
-																"x": "CursorTest.X",
-																"y": "CursorTest.Y"
+																"x": "CursorT.X",
+																"y": "CursorT.Y"
 															}
 														}
 													],
@@ -550,8 +550,8 @@
 															"objectClass": "Collisions",
 															"sid": 737213906900930,
 															"parameters": {
-																"tile-x": "CursorTest.X/Tile",
-																"tile-y": "CursorTest.Y/Tile",
+																"tile-x": "CursorT.X/Tile",
+																"tile-y": "CursorT.Y/Tile",
 																"comparison": 1,
 																"tile": "0"
 															}
@@ -814,7 +814,7 @@
 																				},
 																				{
 																					"id": "set-position",
-																					"objectClass": "CursorTest",
+																					"objectClass": "CursorT",
 																					"sid": 378205325483877,
 																					"parameters": {
 																						"x": "-100",
@@ -835,7 +835,7 @@
 																	"conditions": [
 																		{
 																			"id": "is-overlapping-another-object",
-																			"objectClass": "CursorTest",
+																			"objectClass": "CursorT",
 																			"sid": 503761437011948,
 																			"parameters": {
 																				"object": "PlayerBase"
@@ -959,7 +959,7 @@
 																					"conditions": [
 																						{
 																							"id": "is-boolean-instance-variable-set",
-																							"objectClass": "CursorTest",
+																							"objectClass": "CursorT",
 																							"sid": 864972258300858,
 																							"parameters": {
 																								"instance-variable": "HasLOS"
@@ -967,7 +967,7 @@
 																						},
 																						{
 																							"id": "is-boolean-instance-variable-set",
-																							"objectClass": "CursorTest",
+																							"objectClass": "CursorT",
 																							"sid": 341179011504259,
 																							"parameters": {
 																								"instance-variable": "OnEnemy"
@@ -1029,7 +1029,7 @@
 															"actions": [
 																{
 																	"id": "set-position",
-																	"objectClass": "CursorTest",
+																	"objectClass": "CursorT",
 																	"sid": 856772089662346,
 																	"parameters": {
 																		"x": "-100",
@@ -1408,7 +1408,7 @@
 				},
 				{
 					"id": "is-overlapping-another-object",
-					"objectClass": "CursorTest",
+					"objectClass": "CursorT",
 					"sid": 866366554274424,
 					"parameters": {
 						"object": "PlayerBase"
@@ -1565,7 +1565,7 @@
 			"conditions": [
 				{
 					"id": "is-boolean-instance-variable-set",
-					"objectClass": "CursorTest",
+					"objectClass": "CursorT",
 					"sid": 105491160893661,
 					"parameters": {
 						"instance-variable": "HasLOS"
@@ -1575,7 +1575,7 @@
 			"actions": [
 				{
 					"id": "set-default-color",
-					"objectClass": "CursorTest",
+					"objectClass": "CursorT",
 					"sid": 482472435053312,
 					"parameters": {
 						"color": "rgb(255, 255, 255)"
@@ -1589,7 +1589,7 @@
 					"conditions": [
 						{
 							"id": "is-boolean-instance-variable-set",
-							"objectClass": "CursorTest",
+							"objectClass": "CursorT",
 							"sid": 795831358945903,
 							"parameters": {
 								"instance-variable": "OnEnemy"
@@ -1599,7 +1599,7 @@
 					"actions": [
 						{
 							"id": "set-default-color",
-							"objectClass": "CursorTest",
+							"objectClass": "CursorT",
 							"sid": 230820657652999,
 							"parameters": {
 								"color": "rgb(255, 150, 150)"
@@ -1622,7 +1622,7 @@
 			"actions": [
 				{
 					"id": "set-default-color",
-					"objectClass": "CursorTest",
+					"objectClass": "CursorT",
 					"sid": 374948607235971,
 					"parameters": {
 						"color": "rgb(150, 150, 150)"

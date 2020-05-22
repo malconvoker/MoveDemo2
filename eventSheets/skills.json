@@ -98,17 +98,17 @@
 					"objectClass": "PlayerBase",
 					"sid": 143092883825311,
 					"parameters": {
-						"object": "P_Fireball",
+						"object": "Pp_Fireball",
 						"layer": "0",
 						"image-point": "\"center\""
 					}
 				},
 				{
 					"id": "set-angle",
-					"objectClass": "P_Fireball",
+					"objectClass": "Pp_Fireball",
 					"sid": 102690576756896,
 					"parameters": {
-						"angle": "angle(PlayerBase.X, PlayerBase.Y, Cursor.X, Cursor.Y)"
+						"angle": "angle(PlayerBase.X, PlayerBase.Y, CursorT.X, CursorT.Y)"
 					}
 				},
 				{
@@ -127,15 +127,7 @@
 					"eventType": "block",
 					"conditions": [],
 					"actions": [],
-					"sid": 750568622515312,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 220266534078077
-						}
-					]
+					"sid": 416162344379008
 				}
 			]
 		},
@@ -207,21 +199,21 @@
 					"objectClass": "EnemyBases",
 					"sid": 698600578668127,
 					"parameters": {
-						"object": "P_Fireball"
+						"object": "Pp_Fireball"
 					}
 				}
 			],
 			"actions": [
 				{
 					"id": "destroy",
-					"objectClass": "P_Fireball",
+					"objectClass": "Pp_Fireball",
 					"sid": 659591016104217
 				},
 				{
 					"callFunction": "DamageEnemy",
 					"sid": 236175758771558,
 					"parameters": [
-						"P_Fireball.rangedDmg",
+						"Pp_Fireball.rangedDmg",
 						"EnemyBases.UID"
 					]
 				},

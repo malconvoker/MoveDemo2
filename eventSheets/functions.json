@@ -46,7 +46,7 @@
 							"objectClass": "Functions",
 							"sid": 899165334211769,
 							"parameters": {
-								"value": "Functions.GetAngle45(\nPlayerBase.X,\nPlayerBase.Y,\nCursorTest.X,\nCursorTest.Y)"
+								"value": "Functions.GetAngle45(\nPlayerBase.X,\nPlayerBase.Y,\nCursorT.X,\nCursorT.Y)"
 							}
 						}
 					],
@@ -273,7 +273,7 @@
 					"sid": 551967756646411,
 					"disabled": true,
 					"parameters": {
-						"text": "abs((CursorTest.X-PlayerBase.X)/Tile) & \", \" & abs((CursorTest.Y-PlayerBase.Y)/Tile) & \": \" & max(abs((CursorTest.X-PlayerBase.X)/Tile), abs((CursorTest.Y-PlayerBase.Y)/Tile))"
+						"text": "abs((CursorT.X-PlayerBase.X)/Tile) & \", \" & abs((CursorT.Y-PlayerBase.Y)/Tile) & \": \" & max(abs((CursorT.X-PlayerBase.X)/Tile), abs((CursorT.Y-PlayerBase.Y)/Tile))"
 					}
 				},
 				{
@@ -319,7 +319,7 @@
 					"objectClass": "TXTcursordistance",
 					"sid": 773266842879776,
 					"parameters": {
-						"text": "\"Cursor Distance: \" & newline &\nabs((CursorTest.X-PlayerBase.X)/Tile) & \", \" &\nabs((CursorTest.Y-PlayerBase.Y)/Tile) & \": \" &\nmax(abs((CursorTest.X-PlayerBase.X)/Tile), abs((CursorTest.Y-PlayerBase.Y)/Tile))"
+						"text": "\"Cursor Distance: \" & newline &\nabs((CursorT.X-PlayerBase.X)/Tile) & \", \" &\nabs((CursorT.Y-PlayerBase.Y)/Tile) & \": \" &\nmax(abs((CursorT.X-PlayerBase.X)/Tile), abs((CursorT.Y-PlayerBase.Y)/Tile))"
 					}
 				},
 				{
@@ -328,7 +328,7 @@
 					"sid": 728801597057744,
 					"disabled": true,
 					"parameters": {
-						"value": "max(abs((CursorTest.X-PlayerBase.X)/Tile), abs((CursorTest.Y-PlayerBase.Y)/Tile))"
+						"value": "max(abs((CursorT.X-PlayerBase.X)/Tile), abs((CursorT.Y-PlayerBase.Y)/Tile))"
 					}
 				},
 				{
@@ -336,7 +336,7 @@
 					"objectClass": "Functions",
 					"sid": 262708574632637,
 					"parameters": {
-						"value": "Functions.TileDistance(CursorTest.X,CursorTest.Y, PlayerBase.X,PlayerBase.Y)"
+						"value": "Functions.TileDistance(CursorT.X,CursorT.Y, PlayerBase.X,PlayerBase.Y)"
 					}
 				}
 			],
@@ -540,7 +540,7 @@
 							"objectClass": "System",
 							"sid": 648587388243772,
 							"parameters": {
-								"first-value": "Functions.LOScheck(PlayerBase.X, PlayerBase.Y, CursorTest.X, CursorTest.Y)",
+								"first-value": "Functions.LOScheck(PlayerBase.X, PlayerBase.Y, CursorT.X, CursorT.Y)",
 								"comparison": 0,
 								"second-value": "1"
 							}
@@ -549,7 +549,7 @@
 					"actions": [
 						{
 							"id": "set-boolean-instvar",
-							"objectClass": "CursorTest",
+							"objectClass": "CursorT",
 							"sid": 512526797071012,
 							"parameters": {
 								"instance-variable": "HasLOS",
@@ -571,7 +571,7 @@
 					"actions": [
 						{
 							"id": "set-boolean-instvar",
-							"objectClass": "CursorTest",
+							"objectClass": "CursorT",
 							"sid": 404319661372116,
 							"parameters": {
 								"instance-variable": "HasLOS",
@@ -608,7 +608,7 @@
 							"objectClass": "System",
 							"sid": 860028608529169,
 							"parameters": {
-								"first-value": "Functions.LOScheck(PlayerBase.X, PlayerBase.Y, CursorTest.X, CursorTest.Y)",
+								"first-value": "Functions.LOScheck(PlayerBase.X, PlayerBase.Y, CursorT.X, CursorT.Y)",
 								"comparison": 0,
 								"second-value": "1"
 							}
@@ -617,7 +617,7 @@
 					"actions": [
 						{
 							"id": "set-boolean-instvar",
-							"objectClass": "CursorTest",
+							"objectClass": "CursorT",
 							"sid": 551308457290217,
 							"parameters": {
 								"instance-variable": "HasLOS",
@@ -647,7 +647,7 @@
 					"actions": [
 						{
 							"id": "set-boolean-instvar",
-							"objectClass": "CursorTest",
+							"objectClass": "CursorT",
 							"sid": 993258356623979,
 							"parameters": {
 								"instance-variable": "HasLOS",

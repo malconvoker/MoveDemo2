@@ -140,8 +140,8 @@
 					"PlayerBase",
 					"PlayerMask",
 					"MoveTile",
-					"Cursor",
-					"P_Fireball"
+					"CursorT",
+					"Pp_Fireball"
 				],
 				"subfolders": [],
 				"name": "Player"

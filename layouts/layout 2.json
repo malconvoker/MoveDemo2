@@ -322,7 +322,7 @@
 					}
 				},
 				{
-					"type": "CursorTest",
+					"type": "CursorT",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -1560,7 +1560,7 @@
 					}
 				},
 				{
-					"type": "e_Fireball",
+					"type": "Pp_Fireball",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
