@@ -118,21 +118,40 @@
 		"subfolders": [
 			{
 				"items": [
-					"E_SlowChaseBase",
-					"E_SlowChaseMask",
 					"E_UpDownBase",
 					"E_UpDownMask",
-					"E_SlowChaseMoveTile",
-					"E_SeeChaseBase",
-					"E_SeeChaseMask",
-					"E_SeeChaseMoveTile",
-					"indicator",
-					"E_RangedBase",
-					"E_RangedMoveTile",
-					"E_RangedMask",
-					"e_RangedProjectile"
+					"indicator"
 				],
-				"subfolders": [],
+				"subfolders": [
+					{
+						"items": [
+							"E_RangedBase",
+							"E_RangedMask",
+							"E_RangedMoveTile",
+							"e_RangedProjectile"
+						],
+						"subfolders": [],
+						"name": "E_Ranged"
+					},
+					{
+						"items": [
+							"E_SeeChaseBase",
+							"E_SeeChaseMask",
+							"E_SeeChaseMoveTile"
+						],
+						"subfolders": [],
+						"name": "E_SeeChase"
+					},
+					{
+						"items": [
+							"E_SlowChaseBase",
+							"E_SlowChaseMask",
+							"E_SlowChaseMoveTile"
+						],
+						"subfolders": [],
+						"name": "E_SlowChase"
+					}
+				],
 				"name": "Enemies"
 			},
 			{
@@ -140,8 +159,8 @@
 					"PlayerBase",
 					"PlayerMask",
 					"MoveTile",
-					"CursorT",
-					"Pp_Fireball"
+					"Cursor",
+					"P_Fireball"
 				],
 				"subfolders": [],
 				"name": "Player"

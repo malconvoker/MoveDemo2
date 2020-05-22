@@ -535,7 +535,7 @@
 					}
 				},
 				{
-					"type": "CursorT",
+					"type": "Cursor",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",

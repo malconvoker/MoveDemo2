@@ -34,7 +34,7 @@
 				},
 				{
 					"id": "set-position",
-					"objectClass": "CursorT",
+					"objectClass": "Cursor",
 					"sid": 319344139592282,
 					"disabled": true,
 					"parameters": {
@@ -96,7 +96,7 @@
 					"conditions": [
 						{
 							"id": "is-on-screen",
-							"objectClass": "CursorT",
+							"objectClass": "Cursor",
 							"sid": 784163220509569
 						}
 					],
@@ -367,8 +367,8 @@
 									"objectClass": "Collisions",
 									"sid": 847095603071890,
 									"parameters": {
-										"tile-x": "CursorT.X/Tile",
-										"tile-y": "CursorT.Y/Tile",
+										"tile-x": "Cursor.X/Tile",
+										"tile-y": "Cursor.Y/Tile",
 										"comparison": 1,
 										"tile": "0"
 									}
