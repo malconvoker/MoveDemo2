@@ -42,6 +42,41 @@
 				"repeatCount": 1,
 				"repeatTo": 0,
 				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 26,
+						"height": 26,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6641235,
+						"collisionPoly": {
+							"points": [
+								0.07692307692307693,
+								0.07692307692307693,
+								0.9230769230769231,
+								0.07692307692307693,
+								0.9230769230769231,
+								0.9230769230769231,
+								0.07692307692307693,
+								0.9230769230769231
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 165544399433438,
+				"name": "shield",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
 			}
 		],
 		"subfolders": []

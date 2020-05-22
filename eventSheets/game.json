@@ -74,14 +74,6 @@
 				},
 				{
 					"id": "set-text",
-					"objectClass": "TXThp",
-					"sid": 551022387329931,
-					"parameters": {
-						"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp & \"hp, \" & PlayerBase.mp & \"/\" & PlayerBase.maxmp & \"mp\""
-					}
-				},
-				{
-					"id": "set-text",
 					"objectClass": "TXTtouchmode",
 					"sid": 242244116104003,
 					"parameters": {
@@ -111,6 +103,53 @@
 						}
 					],
 					"sid": 612696239599481
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PlayerBase",
+							"sid": 307431378714634,
+							"parameters": {
+								"instance-variable": "temphp",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TXThp",
+							"sid": 769262530559751,
+							"parameters": {
+								"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp & \"+\" & PlayerBase.temphp & \"hp, \" & PlayerBase.mp & \"/\" & PlayerBase.maxmp & \"mp\""
+							}
+						}
+					],
+					"sid": 443614879473915
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 349364961537324
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TXThp",
+							"sid": 709799602340259,
+							"parameters": {
+								"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp & \"hp, \" & PlayerBase.mp & \"/\" & PlayerBase.maxmp & \"mp\""
+							}
+						}
+					],
+					"sid": 219177397457356
 				}
 			]
 		},
@@ -226,7 +265,7 @@
 							"objectClass": "System",
 							"sid": 458500977448279,
 							"parameters": {
-								"object-to-create": "PfPing",
+								"object-to-create": "TempDmgPing",
 								"layer": "\"Layer 0\"",
 								"x": "PlayerBase.Pathfinding.NodeXAt(PlayerBase.Pathfinding.NodeCount-1)",
 								"y": "PlayerBase.Pathfinding.NodeYAt(PlayerBase.Pathfinding.NodeCount-1)"
@@ -574,7 +613,7 @@
 							"objectClass": "System",
 							"sid": 515944003683182,
 							"parameters": {
-								"object-to-create": "PfPing",
+								"object-to-create": "TempDmgPing",
 								"layer": "\"Layer 0\"",
 								"x": "EnemyBases.Pathfinding.NodeXAt(EnemyBases.Pathfinding.NodeCount-1)",
 								"y": "EnemyBases.Pathfinding.NodeYAt(EnemyBases.Pathfinding.NodeCount-1)"
@@ -720,14 +759,14 @@
 					"conditions": [
 						{
 							"id": "on-any-animation-finished",
-							"objectClass": "PfPing",
+							"objectClass": "TempDmgPing",
 							"sid": 361428094943297
 						}
 					],
 					"actions": [
 						{
 							"id": "destroy",
-							"objectClass": "PfPing",
+							"objectClass": "TempDmgPing",
 							"sid": 969623778319290
 						}
 					],
@@ -782,6 +821,21 @@
 					"id": "move-to-top",
 					"objectClass": "e_RangedProjectile",
 					"sid": 747608823904358
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "Skill_Fireball",
+					"sid": 882278377741928
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "Skill_Shield",
+					"sid": 724622899930212
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "TempDmgPing",
+					"sid": 480484016878497
 				}
 			],
 			"sid": 156823323105485

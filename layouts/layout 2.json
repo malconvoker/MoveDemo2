@@ -226,9 +226,11 @@
 						"meleeDmg": 1,
 						"maxhp": 15,
 						"hp": 15,
+						"temphp": 0,
 						"maxmp": 3,
 						"mp": 3,
-						"TurnInProgress": true
+						"TurnInProgress": true,
+						"DamageTaken": 0
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -960,7 +962,7 @@
 					}
 				},
 				{
-					"type": "PfPing",
+					"type": "TempDmgPing",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -1504,7 +1506,7 @@
 					"instanceVariables": {
 						"Touched": false,
 						"Active": false,
-						"CurrentSkill": "fireball",
+						"CurrentSkill": "shield",
 						"SkillSlot": 2
 					},
 					"behaviors": {},
@@ -1560,7 +1562,7 @@
 					}
 				},
 				{
-					"type": "P_Fireball",
+					"type": "Skill_Fireball",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -1570,7 +1572,8 @@
 					},
 					"uid": 70,
 					"instanceVariables": {
-						"rangedDmg": 1
+						"rangedDmg": 1,
+						"TargetUID": 0
 					},
 					"behaviors": {
 						"Bullet": {
@@ -1592,6 +1595,39 @@
 						"height": 20,
 						"originX": 0.5,
 						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Skill_Shield",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 97,
+					"instanceVariables": {},
+					"behaviors": {
+						"Flash": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 160,
+						"y": -80,
+						"width": 20,
+						"height": 26,
+						"originX": 0.5,
+						"originY": 0.6923076923076923,
 						"color": [
 							1,
 							1,

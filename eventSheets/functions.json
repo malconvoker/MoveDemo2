@@ -401,16 +401,158 @@
 			"conditions": [],
 			"actions": [
 				{
-					"id": "subtract-from-instvar",
+					"id": "add-to-instvar",
 					"objectClass": "PlayerBase",
-					"sid": 872221105979153,
+					"sid": 458364284931975,
 					"parameters": {
-						"instance-variable": "hp",
+						"instance-variable": "DamageTaken",
 						"value": "Damage"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "PlayerBase",
+					"sid": 170697061297608,
+					"parameters": {
+						"object": "TempDmgPing",
+						"layer": "0",
+						"image-point": "\"center\""
 					}
 				}
 			],
-			"sid": 838345261368669
+			"sid": 838345261368669,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PlayerBase",
+							"sid": 806732210277429,
+							"parameters": {
+								"instance-variable": "temphp",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 605137262775343,
+							"parameters": {
+								"variable": "Damage",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "flash",
+							"objectClass": "Skill_Shield",
+							"sid": 911058160777078,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "0.5"
+							}
+						}
+					],
+					"sid": 319907144072441,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "while",
+									"objectClass": "System",
+									"sid": 643082808916047
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "PlayerBase",
+									"sid": 633180067366475,
+									"parameters": {
+										"instance-variable": "temphp",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 194513409044073,
+									"parameters": {
+										"variable": "Damage",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 440647635146790,
+									"parameters": {
+										"variable": "Damage",
+										"value": "1"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "PlayerBase",
+									"sid": 484126679733281,
+									"parameters": {
+										"instance-variable": "temphp",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 318779420432823
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 966753566895154,
+							"parameters": {
+								"variable": "Damage",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "PlayerBase",
+							"sid": 922141447656228,
+							"parameters": {
+								"instance-variable": "hp",
+								"value": "Damage"
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "PlayerMask",
+							"sid": 203351861041425,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "0.5"
+							}
+						}
+					],
+					"sid": 241140609817371
+				}
+			]
 		},
 		{
 			"functionName": "DamageEnemy",

@@ -39,9 +39,22 @@
 						"string": "\"shield\"",
 						"function": "Shield"
 					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "SkillButtons",
+					"sid": 808439149831664,
+					"parameters": {
+						"animation": "Self.CurrentSkill",
+						"from": "beginning"
+					}
 				}
 			],
 			"sid": 813242609112864
+		},
+		{
+			"eventType": "comment",
+			"text": "Fireball Skill: shoots a fireball at target enemy in LOS, dealing damage to it"
 		},
 		{
 			"functionName": "FireballSelect",
@@ -53,6 +66,10 @@
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [
+				{
+					"type": "comment",
+					"text": "Targeting itself is dealt with in Player event sheet, under End Touch"
+				},
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
@@ -94,30 +111,30 @@
 					}
 				},
 				{
+					"id": "subtract-from-instvar",
+					"objectClass": "PlayerBase",
+					"sid": 629078363672481,
+					"parameters": {
+						"instance-variable": "mp",
+						"value": "1"
+					}
+				},
+				{
 					"id": "spawn-another-object",
 					"objectClass": "PlayerBase",
 					"sid": 143092883825311,
 					"parameters": {
-						"object": "P_Fireball",
+						"object": "Skill_Fireball",
 						"layer": "0",
 						"image-point": "\"center\""
 					}
 				},
 				{
 					"id": "set-angle",
-					"objectClass": "P_Fireball",
+					"objectClass": "Skill_Fireball",
 					"sid": 102690576756896,
 					"parameters": {
 						"angle": "angle(PlayerBase.X, PlayerBase.Y, Cursor.X, Cursor.Y)"
-					}
-				},
-				{
-					"id": "subtract-from-instvar",
-					"objectClass": "PlayerBase",
-					"sid": 730053784758960,
-					"parameters": {
-						"instance-variable": "mp",
-						"value": "1"
 					}
 				}
 			],
@@ -125,23 +142,183 @@
 			"children": [
 				{
 					"eventType": "block",
-					"conditions": [],
-					"actions": [],
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "EnemyBases",
+							"sid": 369789867299948,
+							"parameters": {
+								"object": "Cursor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Skill_Fireball",
+							"sid": 474104055859761,
+							"parameters": {
+								"instance-variable": "TargetUID",
+								"value": "EnemyBases.UID"
+							}
+						}
+					],
 					"sid": 416162344379008
 				}
 			]
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "EnemyBases",
+					"sid": 630966458325260,
+					"parameters": {
+						"object": "Skill_Fireball"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "EnemyBases",
+					"sid": 912123137457978,
+					"parameters": {
+						"unique-id": "Skill_Fireball.TargetUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Skill_Fireball",
+					"sid": 794284841132528
+				},
+				{
+					"callFunction": "DamageEnemy",
+					"sid": 714821122680185,
+					"parameters": [
+						"Skill_Fireball.rangedDmg",
+						"EnemyBases.UID"
+					]
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 207462488952456,
+					"parameters": {
+						"audio-file": "hit_test",
+						"loop": "not-looping",
+						"volume": "-5",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"callFunction": "NextTurn",
+					"sid": 320338300851888
+				}
+			],
+			"sid": 866902425697938
+		},
+		{
+			"eventType": "comment",
+			"text": "Shield Skill: provides temp hp that decay 1/turn if not damaged"
+		},
+		{
 			"functionName": "Shield",
-			"functionDescription": "Activates Shield, provides temp hp that decay 1/turn",
+			"functionDescription": "Activates Shield, provides temp hp that decay 1/turn if not damaged",
 			"functionCategory": "",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
 			"functionParameters": [],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "SkillButtons",
+					"sid": 630456268969848,
+					"parameters": {
+						"instance-variable": "Active",
+						"value": "false"
+					}
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "PlayerBase",
+					"sid": 969988793850946,
+					"parameters": {
+						"instance-variable": "mp",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "PlayerBase",
+					"sid": 433991538639786,
+					"parameters": {
+						"instance-variable": "temphp",
+						"value": "5"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Skill_Shield",
+					"sid": 518627678176427,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"callFunction": "NextTurn",
+					"sid": 925588273857170
+				}
+			],
 			"sid": 427378830381419
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "PlayerBase",
+					"sid": 846240375958982,
+					"parameters": {
+						"instance-variable": "temphp",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Skill_Shield",
+					"sid": 541584824817151
+				}
+			],
+			"sid": 666006350273304
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 415094765301258
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Skill_Shield",
+					"sid": 181217970853899,
+					"parameters": {
+						"x": "PlayerMask.X",
+						"y": "PlayerMask.Y"
+					}
+				}
+			],
+			"sid": 928371338058299
 		},
 		{
 			"functionName": "SkillMissing",
@@ -179,61 +356,18 @@
 			],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [],
-			"sid": 930694672473764
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "e_RangedProjectile",
-					"sid": 205023271764410,
-					"disabled": true,
-					"parameters": {
-						"object": "EnemyBases"
-					}
-				},
-				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "EnemyBases",
-					"sid": 698600578668127,
-					"parameters": {
-						"object": "P_Fireball"
-					}
-				}
-			],
 			"actions": [
 				{
-					"id": "destroy",
-					"objectClass": "P_Fireball",
-					"sid": 659591016104217
-				},
-				{
-					"callFunction": "DamageEnemy",
-					"sid": 236175758771558,
-					"parameters": [
-						"P_Fireball.rangedDmg",
-						"EnemyBases.UID"
-					]
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 701915278226648,
+					"id": "set-animation",
+					"objectClass": "SkillButtons",
+					"sid": 828298362969263,
 					"parameters": {
-						"audio-file": "hit_test",
-						"loop": "not-looping",
-						"volume": "-5",
-						"tag-optional": "\"\""
+						"animation": "Self.CurrentSkill",
+						"from": "beginning"
 					}
-				},
-				{
-					"callFunction": "NextTurn",
-					"sid": 780033862679740
 				}
 			],
-			"sid": 608634710400462
+			"sid": 930694672473764
 		}
 	],
 	"sid": 981738453536028

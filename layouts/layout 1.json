@@ -147,9 +147,11 @@
 						"meleeDmg": 1,
 						"maxhp": 5,
 						"hp": 5,
+						"temphp": 0,
 						"maxmp": 3,
 						"mp": 3,
-						"TurnInProgress": true
+						"TurnInProgress": true,
+						"DamageTaken": 0
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -990,7 +992,7 @@
 					}
 				},
 				{
-					"type": "PfPing",
+					"type": "TempDmgPing",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",

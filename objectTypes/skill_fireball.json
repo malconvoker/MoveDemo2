@@ -1,5 +1,5 @@
 {
-	"name": "P_Fireball",
+	"name": "Skill_Fireball",
 	"plugin-id": "Sprite",
 	"sid": 563779365407434,
 	"isGlobal": false,
@@ -9,6 +9,12 @@
 			"type": "number",
 			"desc": "Damage the projectile deals",
 			"sid": 114758900264692
+		},
+		{
+			"name": "TargetUID",
+			"type": "number",
+			"desc": "UID of target enemy",
+			"sid": 234789983222953
 		}
 	],
 	"behaviorTypes": [

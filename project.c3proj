@@ -24,8 +24,16 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Tilemap",
-			"name": "Tilemap",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
 			"author": "Scirra",
 			"version": "r197.2",
 			"bundled": false
@@ -48,16 +56,8 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Keyboard",
-			"name": "Keyboard",
-			"author": "Scirra",
-			"version": "r197.2",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Audio",
-			"name": "Audio",
+			"id": "Tilemap",
+			"name": "Tilemap",
 			"author": "Scirra",
 			"version": "r197.2",
 			"bundled": false
@@ -98,22 +98,8 @@
 	"uniqueId": "0q5jywda9ru",
 	"objectTypes": {
 		"items": [
-			"TMdefault",
-			"Touch",
 			"Node",
-			"Collisions",
-			"PfPing",
-			"TMdungeon",
-			"TiledBackground",
-			"Keyboard",
-			"LOS",
-			"Audio",
-			"Tilemap",
-			"Tilemap2",
-			"UI_SkillButton1",
-			"TMdungeonSmall",
-			"UI_SkillButton2",
-			"UI_SkillButton3"
+			"TempDmgPing"
 		],
 		"subfolders": [
 			{
@@ -160,7 +146,8 @@
 					"PlayerMask",
 					"MoveTile",
 					"Cursor",
-					"P_Fireball"
+					"Skill_Fireball",
+					"Skill_Shield"
 				],
 				"subfolders": [],
 				"name": "Player"
@@ -187,6 +174,38 @@
 				],
 				"subfolders": [],
 				"name": "Deprecated"
+			},
+			{
+				"items": [
+					"Audio",
+					"Keyboard",
+					"LOS",
+					"Touch"
+				],
+				"subfolders": [],
+				"name": "System"
+			},
+			{
+				"items": [
+					"TiledBackground",
+					"UI_SkillButton1",
+					"UI_SkillButton2",
+					"UI_SkillButton3"
+				],
+				"subfolders": [],
+				"name": "UI"
+			},
+			{
+				"items": [
+					"Collisions",
+					"Tilemap",
+					"Tilemap2",
+					"TMdefault",
+					"TMdungeon",
+					"TMdungeonSmall"
+				],
+				"subfolders": [],
+				"name": "Mapping"
 			}
 		]
 	},

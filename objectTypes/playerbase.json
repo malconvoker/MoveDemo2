@@ -41,6 +41,12 @@
 			"sid": 746376378517428
 		},
 		{
+			"name": "temphp",
+			"type": "number",
+			"desc": "Current amount of temporary hp, decays by 1 every turn",
+			"sid": 536297384902540
+		},
+		{
 			"name": "maxmp",
 			"type": "number",
 			"desc": "",
@@ -57,6 +63,12 @@
 			"type": "boolean",
 			"desc": "Is the player turn in progress (used in addition to Turn == 1)",
 			"sid": 287912942623586
+		},
+		{
+			"name": "DamageTaken",
+			"type": "number",
+			"desc": "Damage taken between turns",
+			"sid": 844345218234026
 		}
 	],
 	"behaviorTypes": [

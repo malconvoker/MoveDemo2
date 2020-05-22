@@ -474,27 +474,6 @@
 												"instance-variable": "ActTime",
 												"value": "0"
 											}
-										},
-										{
-											"id": "spawn-another-object",
-											"objectClass": "PlayerBase",
-											"sid": 118207380974168,
-											"parameters": {
-												"object": "PfPing",
-												"layer": "0",
-												"image-point": "\"center\""
-											}
-										},
-										{
-											"id": "flash",
-											"objectClass": "PlayerMask",
-											"sid": 670532593019608,
-											"behaviorType": "Flash",
-											"parameters": {
-												"on-time": "0.1",
-												"off-time": "0.1",
-												"duration": "0.5"
-											}
 										}
 									],
 									"sid": 944213289652254
@@ -939,27 +918,6 @@
 												"loop": "not-looping",
 												"volume": "-5",
 												"tag-optional": "\"\""
-											}
-										},
-										{
-											"id": "spawn-another-object",
-											"objectClass": "PlayerBase",
-											"sid": 432541200428271,
-											"parameters": {
-												"object": "PfPing",
-												"layer": "0",
-												"image-point": "\"center\""
-											}
-										},
-										{
-											"id": "flash",
-											"objectClass": "PlayerMask",
-											"sid": 903537469711460,
-											"behaviorType": "Flash",
-											"parameters": {
-												"on-time": "0.1",
-												"off-time": "0.1",
-												"duration": "0.5"
 											}
 										},
 										{
@@ -1563,27 +1521,6 @@
 												"loop": "not-looping",
 												"volume": "-5",
 												"tag-optional": "\"\""
-											}
-										},
-										{
-											"id": "spawn-another-object",
-											"objectClass": "PlayerBase",
-											"sid": 949283655251958,
-											"parameters": {
-												"object": "PfPing",
-												"layer": "0",
-												"image-point": "\"center\""
-											}
-										},
-										{
-											"id": "flash",
-											"objectClass": "PlayerMask",
-											"sid": 214679763553573,
-											"behaviorType": "Flash",
-											"parameters": {
-												"on-time": "0.1",
-												"off-time": "0.1",
-												"duration": "0.5"
 											}
 										},
 										{
@@ -2731,27 +2668,6 @@
 													}
 												},
 												{
-													"id": "spawn-another-object",
-													"objectClass": "PlayerBase",
-													"sid": 141946555467047,
-													"parameters": {
-														"object": "PfPing",
-														"layer": "0",
-														"image-point": "\"center\""
-													}
-												},
-												{
-													"id": "flash",
-													"objectClass": "PlayerMask",
-													"sid": 404598711199554,
-													"behaviorType": "Flash",
-													"parameters": {
-														"on-time": "0.1",
-														"off-time": "0.1",
-														"duration": "0.5"
-													}
-												},
-												{
 													"id": "set-instvar-value",
 													"objectClass": "E_RangedBase",
 													"sid": 221333092204612,
@@ -2899,69 +2815,6 @@
 													"sid": 489097122650501,
 													"parameters": {
 														"angle": "angle(E_RangedBase.X, E_RangedBase.Y, PlayerBase.X, PlayerBase.Y)"
-													}
-												},
-												{
-													"callFunction": "DamagePlayer",
-													"sid": 660392508245537,
-													"disabled": true,
-													"parameters": [
-														"E_RangedBase.rangedDmg"
-													]
-												},
-												{
-													"id": "play",
-													"objectClass": "Audio",
-													"sid": 239034955007724,
-													"disabled": true,
-													"parameters": {
-														"audio-file": "hit_test",
-														"loop": "not-looping",
-														"volume": "-5",
-														"tag-optional": "\"\""
-													}
-												},
-												{
-													"id": "spawn-another-object",
-													"objectClass": "PlayerBase",
-													"sid": 242620703739115,
-													"disabled": true,
-													"parameters": {
-														"object": "PfPing",
-														"layer": "0",
-														"image-point": "\"center\""
-													}
-												},
-												{
-													"id": "flash",
-													"objectClass": "PlayerMask",
-													"sid": 884422067195021,
-													"disabled": true,
-													"behaviorType": "Flash",
-													"parameters": {
-														"on-time": "0.1",
-														"off-time": "0.1",
-														"duration": "0.5"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "E_RangedBase",
-													"sid": 728480521562328,
-													"disabled": true,
-													"parameters": {
-														"instance-variable": "ActTime",
-														"value": "0"
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "E_RangedBase",
-													"sid": 233147712307094,
-													"disabled": true,
-													"parameters": {
-														"instance-variable": "SkipPause",
-														"value": "false"
 													}
 												}
 											],
@@ -3144,27 +2997,6 @@
 								"loop": "not-looping",
 								"volume": "-5",
 								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "spawn-another-object",
-							"objectClass": "PlayerBase",
-							"sid": 616273572199705,
-							"parameters": {
-								"object": "PfPing",
-								"layer": "0",
-								"image-point": "\"center\""
-							}
-						},
-						{
-							"id": "flash",
-							"objectClass": "PlayerMask",
-							"sid": 555961906682061,
-							"behaviorType": "Flash",
-							"parameters": {
-								"on-time": "0.1",
-								"off-time": "0.1",
-								"duration": "0.5"
 							}
 						}
 					],

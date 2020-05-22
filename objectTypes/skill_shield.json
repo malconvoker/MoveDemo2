@@ -1,0 +1,43 @@
+{
+	"name": "Skill_Shield",
+	"plugin-id": "Sprite",
+	"sid": 293743973829258,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 895175144980813
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 26,
+						"originX": 0.5,
+						"originY": 0.6923076923076923,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9299070,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 609651297925661,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
