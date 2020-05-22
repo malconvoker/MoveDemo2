@@ -6,6 +6,35 @@
 			"includeSheet": "Skills"
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 336957687309188
+				}
+			],
+			"actions": [
+				{
+					"id": "preload",
+					"objectClass": "Audio",
+					"sid": 305523526213822,
+					"parameters": {
+						"audio-file": "walk_sound_test"
+					}
+				},
+				{
+					"id": "preload",
+					"objectClass": "Audio",
+					"sid": 147182821890653,
+					"parameters": {
+						"audio-file": "hit_test"
+					}
+				}
+			],
+			"sid": 175238041369042
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Player Turn",

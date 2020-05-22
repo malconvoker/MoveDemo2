@@ -1,0 +1,61 @@
+{
+	"name": "UI_BG",
+	"plugin-id": "Sprite",
+	"sid": 898950910110425,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 87,
+						"height": 240,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\UI v3.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2145530,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 87,
+						"height": 240,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\UI brown.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4904919,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 87,
+						"height": 240,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\UI v2.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8034130,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 247140378003481,
+				"name": "Animation 1",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0.1
+			}
+		],
+		"subfolders": []
+	}
+}

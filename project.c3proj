@@ -190,7 +190,8 @@
 					"TiledBackground",
 					"UI_SkillButton1",
 					"UI_SkillButton2",
-					"UI_SkillButton3"
+					"UI_SkillButton3",
+					"UI_BG"
 				],
 				"subfolders": [],
 				"name": "UI"
