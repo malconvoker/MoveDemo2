@@ -261,11 +261,13 @@
 					}
 				},
 				{
-					"id": "set-visible",
-					"objectClass": "Skill_Shield",
-					"sid": 518627678176427,
+					"id": "spawn-another-object",
+					"objectClass": "PlayerBase",
+					"sid": 804885155321606,
 					"parameters": {
-						"visibility": "visible"
+						"object": "Skill_Shield",
+						"layer": "0",
+						"image-point": "\"center\""
 					}
 				},
 				{
